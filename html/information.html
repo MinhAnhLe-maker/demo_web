@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hình Hộp Chữ Nhật | Sổ Tay Hình Học</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="../css/information.css" />
+    <style>
+      /* Style cho trang video tràn màn hình */
+      .video-full-slide { padding: 0 !important; overflow: hidden; position: relative; }
+      .video-full-slide video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    </style>
+  </head>
+  <body>
+    <div class="back-nav">
+      <a href="../html/detail.html" class="btn-back">
+        <i class="fas fa-arrow-left"></i> Quay lại trang chủ
+      </a>
+    </div>
+
+    <div class="notebook">
+      <div class="nav-controls">
+        <button onclick="changeSlide(-1)" id="prevBtn"><i class="fas fa-chevron-left"></i> Trang trước</button>
+        <div class="page-indicator"><i class="fas fa-book-open"></i> <span id="pageNumber">Trang 1/6</span></div>
+        <button onclick="changeSlide(1)" id="nextBtn">Trang sau <i class="fas fa-chevron-right"></i></button>
+      </div>
+
+      <div class="pages-container">
+        <section class="slide active">
+          <div class="cover-page">
+            <h1>HÌNH HỘP CHỮ NHẬT</h1>
+            <p class="chapter-info">Chương: Hình học trực quan <i class="fas fa-shapes"></i></p>
+            <img src="../download.png" alt="Hình hộp chữ nhật"> 
+            <div class="start-hint">Bấm "Trang sau" để khám phá!</div>
+          </div>
+        </section>
+
+        <section class="slide video-full-slide">
+          <video autoplay loop muted playsinline>
+            <source src="../VIDEO hình hộp chữ nhật.mp4" type="video/mp4">
+          </video>
+        </section>
+
+        <section class="slide">
+          <div class="content-wrapper concept-container">
+            <div class="concept-visual"><img src="../images.png" alt="Sơ đồ hình hộp chữ nhật"></div>
+            <div class="concept-info">
+              <h2><i class="fas fa-cube"></i> Khái niệm & Yếu tố</h2>
+              <div class="info-card">
+                <p class="summary"><strong>Hình hộp chữ nhật</strong> là khối đa diện có <strong>6 mặt</strong> đều là hình chữ nhật.</p>
+                <ul class="element-list">
+                  <li><i class="fas fa-dot-circle"></i> <span><strong>8 đỉnh:</strong> Các điểm giao nhau của 3 cạnh.</span></li>
+                  <li><i class="fas fa-arrows-alt-h"></i> <span><strong>12 cạnh:</strong> Các cặp cạnh đối song song và bằng nhau.</span></li>
+                  <li><i class="fas fa-th-large"></i> <span><strong>6 mặt:</strong> Gồm 2 mặt đáy và 4 mặt bên.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="content-wrapper">
+            <h2><i class="fas fa-camera"></i> Đồ vật thực tế</h2>
+            <div class="gallery-wrapper">
+              <figure class="gallery-item"><img src="../hop-qua-hinh-vuong-2-1.jpg" alt="Hộp quà"><figcaption>Hộp quà</figcaption></figure>
+              <figure class="gallery-item"><img src="../lovepik-learning-books-illustration-png-png-image_400507089_wh1200.png" alt="Cuốn sách"><figcaption>Cuốn sách</figcaption></figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="content-wrapper formula-container">
+            <h2><i class="fas fa-calculator"></i> Công thức</h2>
+            <div class="formula-grid">
+              <div class="formula-card area-card">
+                <h3>Diện tích (S)</h3>
+                <div class="formula-item">\(S_{xq} = 2 \cdot (a + b) \cdot h\)</div>
+                <div class="formula-item">\(S_{tp} = S_{xq} + 2 \cdot a \cdot b\)</div>
+                <p class="note">(\(a, b\): cạnh đáy; \(h\): chiều cao)</p>
+              </div>
+              <div class="formula-card volume-card">
+                <h3>Thể tích (V)</h3>
+                <div class="main-formula">\(V = a \cdot b \cdot h\)</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="content-wrapper video-container">
+            <h2><i class="fas fa-play-circle"></i> Video bài giảng</h2>
+            <div class="video-frame">
+              <iframe id="lessonVideo" src="https://www.youtube.com/embed/eFbWUAw4Ae8" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="video-desc">
+              <p><i class="fas fa-info-circle"></i> Xem video để hiểu rõ hơn về cách tính toán.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="suggested-lessons">
+    <h2 class="suggest-title">Bài học gợi ý</h2>
+    <div class="lesson-list">
+        <!-- Bài 1 -->
+        <a href="../html/information.html" class="mini-card">
+            <img src="../download.png" alt="Hình Hộp Chữ Nhật">
+            <div class="mini-info">
+                <h4>Hình Hộp Chữ Nhật</h4>
+                <span>Xem ngay &raquo;</span>
+            </div>
+        </a>
+
+        <!-- Bài 2 -->
+        <a href="../html/hlp.html" class="mini-card">
+            <img src="../geometry_0151.gif" alt="Hình Lập Phương">
+            <div class="mini-info">
+                <h4>Hình Lập Phương</h4>
+                <span>Xem ngay &raquo;</span>
+            </div>
+        </a>
+
+        <!-- Bài 3 -->
+        <a href="../html/hctg.html" class="mini-card">
+            <img src="../hinh-chop-tam-giac.png" alt="Hình Chóp Tam Giác Đều">
+            <div class="mini-info">
+                <h4>Hình Chóp Tam Giác Đều</h4>
+                <span>Xem ngay &raquo;</span>
+            </div>
+        </a>
+
+        <!-- Bài 4 -->
+        <a href="../html/hltd.html" class="mini-card">
+            <img src="../images (2).png" alt="Hình Lăng Trụ Đứng Tam Giác">
+            <div class="mini-info">
+                <h4>Hình Lăng Trụ Đứng</h4>
+                <span>Xem ngay &raquo;</span>
+            </div>
+        </a>
+        
+        <!-- Bài 5 -->
+        <a href="../html/hctug.html" class="mini-card">
+            <img src="../img_teacher_2023-08-23_64e5b831cddc4_175 (1).webp" alt="Hình chóp tứ giác đều">
+            <div class="mini-info">
+                <h4>Hình chóp tứ giác đều</h4>
+                <span>Xem ngay &raquo;</span>
+            </div>
+        </a>
+         <a href="../html/htt.html" class="mini-card">
+            <img src="../dien-tich-xung-quanh-hinh-tru.png" alt="Hình trụ tròn">
+            <div class="mini-info">
+                <h4>Hình trụ tròn</h4>
+                <span>Xem ngay &raquo;</span>
+            </div>
+        </a>
+
+        <!-- Thêm các bài khác tương tự... -->
+    </div>
+  </div>
+    
+
+    <script src="../js/information.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </body>
+</html>

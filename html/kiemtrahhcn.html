@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trắc Nghiệm Hình Hộp Chữ Nhật - Toán Học 247</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" href="../css/kiemtrahhcn.css">
+    <!-- CÔ LẬP LOCALSTORAGE CHO CHỦ ĐỀ hhcn -->
+    <script>
+      (function() {
+        const topicId = "hhcn";
+        const targetKeys = ["daNopBaiTrangThai", "dangXemLai", "mangDapAnNguoiDung", "diemTracNghiem", "tongSoCau"];
+        const originalGetItem = localStorage.getItem.bind(localStorage);
+        const originalSetItem = localStorage.setItem.bind(localStorage);
+        const originalRemoveItem = localStorage.removeItem.bind(localStorage);
+
+        localStorage.getItem = function(key) {
+          if (targetKeys.includes(key)) {
+            return originalGetItem(topicId + "_" + key);
+          }
+          return originalGetItem(key);
+        };
+
+        localStorage.setItem = function(key, value) {
+          if (targetKeys.includes(key)) {
+            return originalSetItem(topicId + "_" + key, value);
+          }
+          return originalSetItem(key, value);
+        };
+
+        localStorage.removeItem = function(key) {
+          if (targetKeys.includes(key)) {
+            return originalRemoveItem(topicId + "_" + key);
+          }
+          return originalRemoveItem(key);
+        };
+      })();
+    </script>
+</head>
+<body>
+
+    <div class="quiz-header-container">
+        <a href="../html/test.html" class="quay-lai-btn">Quay lại trang chủ</a>
+        <div class="quiz-title-box">
+            <h1 class="quiz-main-title">Bài Kiểm Tra Hình Học</h1>
+            <p>Chủ đề: Hình Hộp Chữ Nhật (20 câu hỏi trắc nghiệm 4 mức độ)</p>
+        </div>
+    </div>
+
+    <div class="quiz-layout-wrapper">
+        <div class="quiz-card">
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar" style="width: 5%;"></div>
+            </div>
+            <div class="quiz-status">
+                <span id="question-number">Câu hỏi 1/20</span>
+            </div>
+
+            <div class="question-text" id="question-text">
+                Đang tải câu hỏi...
+            </div>
+
+            <div class="options-container" id="options-container">
+                </div>
+
+            <div class="hint-box" id="hint-box">
+                <strong>💡 Gợi ý nhỏ:</strong> <span id="hint-text">Đang tải gợi ý...</span>
+            </div>
+
+            <div class="navigation-box">
+                <button class="nav-btn btn-secondary" id="prev-btn" onclick="cauTruoc()" disabled>Quay lại</button>
+                <button class="nav-btn btn-primary" id="next-btn" onclick="cauTiepTheo()">Tiếp theo</button>
+            </div>
+        </div>
+
+        <div class="question-palette-container" id="question-palette-container">
+            <!-- Bảng số câu hỏi vẽ động bằng JS -->
+        </div>
+    </div>
+
+    <div class="quiz-timer" id="quiz-timer" style="display: none;">
+        <span class="timer-icon">⏱️</span>
+        <span class="timer-text" id="timer-text">30:00</span>
+    </div>
+
+    <script src="../js/kiemtrahhcn.js"></script>
+</body>
+</html>

@@ -1,0 +1,450 @@
+/* ==========================================================================
+   1. ĐỊNH DẠNG KHUNG CHỨA CHÍNH & TIÊU ĐỀ (CĂN GIỮA CHUẨN)
+   ========================================================================== */
+.quiz-main-container {
+    max-width: 1140px;
+    margin: 0 auto 50px auto; /* Bỏ hẳn margin-top để đẩy sát lên trên */
+    padding: 20px;
+    position: relative; /* Tạo mỏ neo để định vị nút quay lại */
+}
+
+/* ÉP TIÊU ĐỀ RA CHÍNH GIỮA MÀN HÌNH */
+.quiz-header-title {
+    text-align: center !important;
+    margin-top: 60px !important; /* Tạo khoảng trống vừa đủ để không đè lên nút quay lại */
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.quiz-header-title h1 {
+    font-size: 32px;
+    color: #1e293b;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+
+.quiz-header-title p {
+    color: #64748b;
+    font-size: 16px;
+    margin: 0;
+    text-align: center;
+}
+
+/* ==========================================================================
+   2. NÚT QUAY LẠI TRANG CHỦ (XÓA BỎ NỀN TRẮNG/XÁM THỪA)
+   ========================================================================== */
+.top-nav {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    /* Xóa bỏ hoàn toàn mọi thuộc tính nền, viền, bóng đổ nếu có của container */
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    width: auto !important;
+}
+
+/* Thiết kế nút quay lại kiểu viên thuốc hiện đại */
+.btn-back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 22px;
+    background: #ffffff !important;
+    color: #1e293b !important; /* Màu chữ xanh đen sang trọng */
+    text-decoration: none !important; /* Xóa gạch chân tuyệt đối */
+    border-radius: 50px !important; /* Bo tròn hoàn toàn */
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1.5px solid #e2e8f0 !important; /* Viền mảnh tinh tế */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important; /* Đổ bóng nhẹ */
+    
+}
+
+
+   
+
+/* Icon mũi tên */
+.btn-back-home i {
+    font-size: 0.8rem;
+    color: #00adef; /* Màu xanh thương hiệu */
+    transition: transform 0.3s ease;
+}
+
+/* Hiệu ứng Hover mượt mà */
+.btn-back-home:hover {
+    background: #00adef !important; /* Đổi nền sang xanh dương */
+    color: white !important;
+    border-color: #00adef !important;
+    transform: translateX(-5px); /* Nhích nhẹ sang trái */
+    box-shadow: 0 8px 20px rgba(0, 173, 239, 0.25) !important;
+}
+
+.btn-back-home:hover i {
+    color: white !important;
+    transform: translateX(-3px);
+}
+
+/* ==========================================================================
+   3. BỐ CỤC LƯỚI 3-3 CHUẨN (ÉP CHIA 3 CỘT)
+   ========================================================================== */
+.quiz-grid-33 {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important; /* Ép chia cố định thành 3 cột */
+    gap: 25px !important; /* Khoảng cách giữa các ô */
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+/* Định dạng các ô bài tập (Cards) */
+.quiz-menu-card {
+    background: #ffffff !important;
+    border: 1.5px solid #e2e8f0 !important;
+    border-radius: 24px !important;
+    padding: 30px 20px !important;
+    text-align: center !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02) !important;
+    transition: all 0.3s ease !important;
+    width: auto !important; /* Ngăn chặn kéo dãn 100% */
+}
+
+.quiz-menu-card:hover {
+    border-color: #00adef !important;
+    transform: translateY(-5px) !important;
+    box-shadow: 0 10px 20px rgba(0, 173, 239, 0.08) !important;
+}
+.quiz-main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* Thiết kế Header */
+.quiz-header-title {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+.quiz-header-title::after { /* Đường kẻ gạch dưới tiêu đề cho sang */
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #00adef;
+    border-radius: 2px;
+    margin: 20px auto;
+}
+
+.quiz-header-title h1 {
+    font-size: 48px;
+    color: #1e3a8a;
+    margin: 10px 0;
+    letter-spacing: -1px;
+}
+/* ==========================================================================
+   CẬP NHẬT NÚT LÀM BÀI NGAY - TO, MÀU XANH NHẠT, HOVER ĐẸP
+   ========================================================================== */
+.start-btn {
+    background-color: #00adef !important; /* Màu xanh nhạt thương hiệu tươi mát */
+    color: #ffffff !important;            /* Màu chữ trắng nổi bật */
+    border: none !important;
+    padding: 14px 0 !important;           /* Tăng padding dọc giúp nút bự và dày dặn hơn */
+    border-radius: 14px !important;       /* Bo góc tròn mượt mà đồng bộ với Card */
+    font-family: 'Lexend', sans-serif !important;
+    font-size: 16px !important;           /* Tăng kích thước chữ lên một chút cho dễ đọc */
+    font-weight: 600 !important;          /* Chữ đậm nét rõ ràng */
+    cursor: pointer !important;
+    width: 100% !important;               /* Ép nút bự hết cỡ, chiếm 100% chiều ngang của ô */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    margin-top: 15px !important;          /* Tạo khoảng cách vừa vặn với đoạn mô tả bên trên */
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important; /* Hiệu ứng mượt mà */
+    box-shadow: 0 4px 12px rgba(0, 173, 239, 0.15) !important; /* Đổ bóng xanh nhẹ dưới chân nút */
+}
+
+/* HIỆU ỨNG HOVER (KHI RÊ CHUỘT VÀO) */
+.start-btn:hover {
+    background-color: #0091cb !important; /* Màu xanh đậm hơn một chút xíu khi hover để tạo điểm nhấn */
+    transform: translateY(-2px) !important; /* Nút nhích nhẹ lên trên tạo cảm giác đàn hồi */
+    box-shadow: 0 6px 18px rgba(0, 173, 239, 0.3) !important; /* Bóng đổ đậm hơn khi hover */
+}
+
+/* HIỆU ỨNG ACTIVE (KHI BẤM CHUỘT XUỐNG) */
+.start-btn:active {
+    transform: translateY(1px) !important; /* Nhấn lún xuống nhẹ tạo cảm giác bấm nút thật */
+}
+* Vùng chứa ảnh */
+.card-image {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ảnh không bị méo */
+    transition: transform 0.3s ease;
+}
+
+/* Hiệu ứng ảnh khi di chuột */
+.lesson-card:hover .card-image img {
+    transform: scale(2.1); /* Phóng to ảnh nhẹ */
+}
+/* 1. ĐỊNH DẠNG LẠI THẺ CHỨA (CARD): ÉP NỘI DUNG DÀN ĐỀU THEO CHIỀU DỌC */
+.quiz-menu-card {
+    background: #ffffff !important;
+    border: 1.5px solid #e2e8f0 !important;
+    border-radius: 24px !important;
+    
+    /* 1. GIẢM THÊM PADDING: Thu hẹp khoảng cách viền trên/dưới xuống còn 12px */
+    padding: 12px 24px !important; 
+    
+    text-align: center !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02) !important;
+    transition: all 0.3s ease !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+
+    /* 2. THẦN CHÚ MỚI: Đổi từ center sang space-between để nội dung tự giãn đều, 
+       không bị dồn cục ở giữa tạo khoảng trắng ở đầu và cuối nữa */
+    justify-content: space-between !important;
+
+    /* 3. ĐẶT CHIỀU CAO CỐ ĐỊNH: Cho hẳn một chiều cao vừa vặn, không sợ bị dài ngoằng */
+    height: 320px !important; 
+    min-height: auto !important; /* Xóa bỏ min-height cũ */
+}
+
+/* 4. ĐỊNH DẠNG LẠI HÌNH VẼ CHO GỌN */
+.quiz-menu-card img, 
+.quiz-menu-card .icon {
+    height: 90px !important; /* Giới hạn chiều cao hình vẽ vừa phải */
+    width: auto !important;
+    margin: 5px auto !important; 
+    display: flex !important;
+    align-items: center;
+}
+
+/* 5. ĐOẠN CHỮ TIÊU ĐỀ BÀI HỌC */
+.quiz-menu-card h2,
+.quiz-menu-card h3 {
+    font-size: 1.2rem !important;
+    margin-top: 5px !important;
+    margin-bottom: 2px !important;
+}
+/* ==========================================================================
+   CĂN NÚT NGANG HÀNG TIÊU ĐỀ & THU GỌN KHOẢNG TRẮNG PHÍA TRÊN
+   ========================================================================== */
+
+.quiz-header-container {
+    /* Đẩy toàn bộ khối tiêu đề thấp xuống cách mép trên trình duyệt 60px */
+    margin-top: 100px !important; 
+    
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 92% !important;
+    max-width: 1200px !important;
+    margin-bottom: 30px !important; /* Khoảng cách với các thẻ bài tập phía dưới */
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Định dạng cho cái nút "Quay lại trang chủ" */
+.quay-lai-btn {
+    background: #ffffff !important;
+    border: 1.5px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 10px 20px !important;
+    color: #475569 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02) !important;
+    transition: all 0.25s ease !important;
+    
+    /* Giữ nút cố định phom, không lo bị khối chữ to bên cạnh chèn ép */
+    flex-shrink: 0 !important; 
+    margin: 0 !important;
+}
+
+.quay-lai-btn:hover {
+    background-color: #f8fafc !important;
+    color: #00a8e8 !important;
+    border-color: #00a8e8 !important;
+}
+
+/* Khối chứa toàn bộ chữ tiêu đề */
+.quiz-title-box {
+    flex-grow: 1 !important;
+    text-align: center !important;
+    /* MẸO: Đẩy lùi khối chữ sang phải 150px bằng đúng độ rộng cái nút, 
+       để bù trừ và giúp dòng chữ tiêu đề nằm chính giữa tâm màn hình */
+    margin-right: 200px !important; 
+}
+
+/* Chữ tiêu đề chính */
+.quiz-main-title {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 2.8rem !important;
+    color: #1e3a8a !important;
+    font-weight: 800 !important;
+    margin: 0 0 8px 0 !important; /* Khoảng cách nhỏ giữa tiêu đề và dòng mô tả */
+    padding: 0 !important;
+}
+
+/* Dòng chữ mô tả nhỏ phía dưới */
+.quiz-title-box p {
+    font-size: 1.1rem !important;
+    color: #64748b !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Responsive: Tự động xếp dọc thẳng hàng nếu xem trên màn hình điện thoại nhỏ */
+@media (max-width: 768px) {
+    .quiz-header-container {
+        flex-direction: column !important;
+        gap: 15px !important;
+        margin-top: 15px !important;
+    }
+    .quiz-title-box {
+        margin-right: 0 !important;
+    }
+}
+/* Container chứa nút để căn vị trí chuẩn */
+.top-nav {
+    position: absolute;
+    top: 25px;
+    left: 30px;
+    z-index: 100;
+}
+/* Khung chứa các nút điều hướng */
+.quiz-container .navigation-buttons, 
+.quiz-navigation { /* Thay bằng class khung chứa nút của bạn nếu khác tên */
+    display: flex;
+    justify-content: space-between; /* Đẩy 2 nút về 2 phía bên cạnh */
+    align-items: center;
+    margin-top: 20px;
+    gap: 15px; /* Tạo khoảng cách cố định giữa các nút */
+}
+
+/* Định dạng chung cho cả nút Quay lại và Tiếp theo */
+#prev-btn, #next-btn {
+    /* ĐẶT CHIỀU DÀI CỐ ĐỊNH: Giúp nút không bị co giãn khi chữ dài ngắn khác nhau */
+    width: 140px; 
+    
+    /* ĐẶT CHIỀU CAO CỐ ĐỊNH */
+    height: 45px; 
+    
+    /* Căn giữa chữ trong nút theo cả chiều dọc lẫn chiều ngang */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Giữ nguyên các thuộc tính giao diện cũ của bạn (ví dụ bên dưới) */
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    text-align: center;
+    white-space: nowrap; /* Tuyệt đối không cho chữ tự động xuống dòng làm nhảy nút */
+}
+
+/* Mẹo nhỏ: Giúp nút khi bị khóa (disabled) không bị đổi kích thước */
+#prev-btn:disabled, #next-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+/* 1. Khung chứa bài trắc nghiệm tổng thể */
+.quiz-container {
+    position: relative;     /* BẮT BUỘC: Làm điểm tựa để định vị cụm nút ở đáy */
+    min-height: 580px;      /* Tăng chiều cao lên một chút để thoải mái chứa câu dài */
+    padding: 30px;
+    padding-bottom: 80px;   /* BẮT BUỘC: Tạo khoảng trống ở đáy để cụm nút không đè lên đáp án */
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-sizing: border-box; /* Đảm bảo tính toán kích thước chuẩn xác */
+}
+
+/* 2. Phần nội dung đề bài */
+#question-text {
+    min-height: 65px; 
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+/* 3. Phần hiển thị Mẹo (Hint) - thủ phạm hay làm nhảy khung */
+#hint-text {
+    min-height: 50px;       /* Cố định chiều cao cho vùng hiện mẹo */
+    margin-bottom: 15px;
+    font-style: italic;
+    color: #7f8c8d;
+}
+
+/* 4. Khung chứa 4 nút đáp án A, B, C, D */
+#options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 5. Từng nút đáp án cố định chiều cao luôn */
+.option-btn {
+    width: 100%;
+    height: 50px;           /* Khóa cứng chiều cao của tất cả nút đáp án */
+    padding: 0 15px;
+    text-align: left;
+    font-size: 15px;
+    border: 1px solid #dcdde1;
+    border-radius: 6px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    display: flex;          /* Giúp căn giữa chữ theo chiều dọc khi cố định height */
+    align-items: center;
+    white-space: normal;    /* Cho phép chữ tự xuống dòng nếu quá dài */
+    overflow: hidden;       /* Không cho chữ tràn ra ngoài */
+    box-sizing: border-box;
+}
+
+/* 6. GĂM CỐ ĐỊNH CỤM NÚT ĐIỀU HƯỚNG Ở ĐÁY KHUNG */
+.navigation-buttons, .quiz-navigation {
+    position: absolute;     /* Biến cụm nút thành một lớp độc lập */
+    bottom: 25px;           /* Cách đáy khung một khoảng cố định */
+    left: 30px;             /* Cách lề trái bằng đúng padding của khung */
+    right: 30px;            /* Cách lề phải bằng đúng padding của khung */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 7. Hai nút bấm Quay lại và Tiếp theo */
+#prev-btn, #next-btn {
+    width: 130px; 
+    height: 42px; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}

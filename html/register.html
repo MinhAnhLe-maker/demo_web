@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký tài khoản | Toán 247</title>
+    <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="auth-page-bg">
+
+    <div class="login-container">
+        <div class="login-card">
+            <a href="../html/login.html" class="back-home">
+                <i class="fas fa-arrow-left"></i> Quay lại đăng nhập
+            </a>
+
+            <div class="login-header">
+                <img src="https://cdn-icons-png.flaticon.com/512/3413/3413535.png" class="sticker-book" alt="Book Icon">
+                <h1>Tạo tài khoản mới</h1>
+                <p>Tham gia cộng đồng học toán để nhận lộ trình riêng biệt.</p>
+            </div>
+
+            <button class="google-btn" id="btnGoogleRegister">
+                <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="Google Logo">
+                <span>Đăng ký với Google</span>
+            </button>
+
+            <div class="divider">
+                <span>Hoặc điền thông tin</span>
+            </div>
+
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="displayName">Họ và tên</label>
+                    <input type="text" id="displayName" placeholder="VD: Nguyễn Văn A" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="VD: name@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" placeholder="Tối thiểu 6 ký tự" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Xác nhận mật khẩu</label>
+                    <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu" required>
+                </div>
+
+                <button type="submit" class="login-submit">Đăng ký ngay</button>
+            </form>
+
+            <div class="register-link-text">
+                Bạn đã có tài khoản? <a href="../html/login.html">Đăng nhập ngay</a>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../js/register.js"></script>
+</body>
+</html>

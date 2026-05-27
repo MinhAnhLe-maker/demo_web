@@ -1,0 +1,139 @@
+/* --- GIAO DIỆN CHUNG --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+}
+
+/* Khung bọc bài kiểm tra */
+.quiz-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 650px;
+}
+
+/* --- THANH TIẾN TRÌNH (PROGRESS BAR) --- */
+.quiz-header h2 {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+    font-size: 20px;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.progress-bar {
+    width: 5%; /* Thay đổi động bằng JS */
+    height: 100%;
+    background-color: #2ecc71;
+    transition: width 0.3s ease;
+}
+
+/* --- NỘI DUNG CÂU HỎI --- */
+.question-section {
+    margin-bottom: 20px;
+}
+
+.question-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.5;
+}
+
+/* --- CÁC NÚT ĐÁP ÁN A, B, C, D --- */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.option-btn {
+    padding: 14px 20px;
+    font-size: 16px;
+    text-align: left;
+    background-color: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #495057;
+    line-height: 1.4;
+}
+
+/* Hiệu ứng khi rê chuột vào (chỉ kích hoạt khi nút không bị khóa) */
+.option-btn:not(:disabled):hover {
+    background-color: #e8f4fd;
+    border-color: #3498db;
+    color: #2980b9;
+}
+
+/* Trạng thái đáp án đang được học sinh tích chọn */
+.option-btn.selected {
+    background-color: #3498db !important;
+    border-color: #2980b9 !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+/* Khóa nút khi đang ở chế độ xem lại bài */
+.option-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.9;
+}
+
+/* --- KHU VỰC ĐIỀU HƯỚNG PHÍA DƯỚI --- */
+.nav-btn {
+    padding: 10px 24px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.nav-btn:hover:not(:disabled) {
+    background-color: #eee;
+}
+
+.nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* --- HIỆU ỨNG CHO KHUNG LỜI GIẢI ĐỘNG --- */
+#explanation-container {
+    animation: slideDown 0.4s ease-out;
+}
+
+#explanation-container h4 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

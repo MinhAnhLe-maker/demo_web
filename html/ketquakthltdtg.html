@@ -1,0 +1,92 @@
+\<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết Quả Kiểm Tra Hình Hộp Chữ Nhật</title>
+    <link rel="stylesheet" href="../css/ketquakthhcn.css">
+    <!-- CÔ LẬP LOCALSTORAGE CHO CHỦ ĐỀ ltdtg -->
+    <script>
+      (function() {
+        const topicId = "ltdtg";
+        const targetKeys = ["daNopBaiTrangThai", "dangXemLai", "mangDapAnNguoiDung", "diemTracNghiem", "tongSoCau"];
+        const originalGetItem = localStorage.getItem.bind(localStorage);
+        const originalSetItem = localStorage.setItem.bind(localStorage);
+        const originalRemoveItem = localStorage.removeItem.bind(localStorage);
+
+        localStorage.getItem = function(key) {
+          if (targetKeys.includes(key)) {
+            return originalGetItem(topicId + "_" + key);
+          }
+          return originalGetItem(key);
+        };
+
+        localStorage.setItem = function(key, value) {
+          if (targetKeys.includes(key)) {
+            return originalSetItem(topicId + "_" + key, value);
+          }
+          return originalSetItem(key, value);
+        };
+
+        localStorage.removeItem = function(key) {
+          if (targetKeys.includes(key)) {
+            return originalRemoveItem(topicId + "_" + key);
+          }
+          return originalRemoveItem(key);
+        };
+      })();
+    </script>
+</head>
+<body>
+
+    <div class="result-box">
+        <h2>KẾT QUẢ BÀI LÀM: Hình Lăng Trụ Đứng Tam Giác</h2>
+        <div class="score-display" id="score-text">0 / 20</div>
+        <div class="evaluation" id="evaluation-text">Đang tải kết quả...</div>
+        
+        <div class="button-group" style="margin-top: 20px; display: flex; gap: 10px; justify-content: center;">
+            <button class="btn-review" onclick="xemLaiBai()">Xem lại bài</button>
+            <button class="btn-retry" onclick="lamLai()" style="background-color: #e67e22; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Làm lại</button>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const diemSo = parseInt(localStorage.getItem("diemTracNghiem")) || 0;
+        const tongSoCau = parseInt(localStorage.getItem("tongSoCau")) || 20;
+
+        // --- PHẦN HIỂN THỊ XU ---
+        // Tính xu: 20 xu/câu đúng + 100 xu thưởng nếu full điểm
+        let xuNhanDuoc = diemSo * 20;
+        if (diemSo === 20) {
+            xuNhanDuoc += 100;
+        }
+
+        const scoreElement = document.getElementById("score-text");
+        if (scoreElement) {
+            scoreElement.innerHTML = `${diemSo} / ${tongSoCau} <br> 
+            <span style="color: #f39c12; font-size: 0.5em;">💰 Nhận được: ${xuNhanDuoc} xu</span>`;
+        }
+        // -------------------------
+
+        let nhanXet = "";
+        if (diemSo === tongSoCau) {
+            nhanXet = "Xuất sắc! Bạn đạt điểm tuyệt đối 100%! 🌟";
+        } else if (diemSo >= 16) {
+            nhanXet = "Rất tốt! Kiến thức hình học của bạn rất vững chắc! 👍";
+        } else if (diemSo >= 10) {
+            nhanXet = "Khá tốt! Bạn đã vượt qua bài kiểm tra ở mức Đạt. 😊";
+        } else {
+            nhanXet = "Cần cố gắng thêm nhé! Hãy xem lại bài làm để rà soát kiến thức. 💪";
+        }
+
+        const evaluationElement = document.getElementById("evaluation-text");
+        if (evaluationElement) {
+            evaluationElement.innerText = nhanXet;
+        }
+    });
+</script>
+
+    <script src="../js/ketquakthltdtg.js"></script>
+</body>
+</html>

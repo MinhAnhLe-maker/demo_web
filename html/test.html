@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Kiểm Tra Hình Học</title>
+    
+    <link rel="stylesheet" href="../css/test.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/detail.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="quiz-header-container">
+        <a href="index.html" class="quay-lai-btn">Quay lại trang chủ</a>
+        
+        <div class="quiz-title-box">
+            <h1 class="quiz-main-title">Bài Kiểm Tra Hình Học</h1>
+            <p>Hoàn thành các câu hỏi trắc nghiệm dưới đây để đánh giá kiến thức của mình nhé!</p>
+        </div>
+    </div>
+
+    <main class="quiz-main-container">
+        
+        <div id="quizSelection" class="quiz-grid-33">
+            
+            <div class="quiz-menu-card" onclick="openTopic('hhcn')">
+                <h2>Bài 1: Hình Hộp Chữ Nhật</h2>
+                <div class="card-image">
+                    <img src="../download.png" alt="Hình Hộp Chữ Nhật">
+                </div>
+                <p>Tính thể tích, diện tích xung quanh và diện tích toàn phần.</p>
+                <button class="start-btn">Làm bài ngay</button>
+            </div>
+
+            <div class="quiz-menu-card" onclick="openTopic('hlp')">
+                <h2>Bài 2: Hình Lập Phương</h2>
+                <div class="card-image">
+                    <img src="../geometry_0151.gif" alt="Hình Lập Phương">
+                </div>
+                <p>Hệ thống câu hỏi tính thể tích và diện tích các mặt khối lập phương.</p>
+                <button class="start-btn">Làm bài ngay</button>
+            </div>
+
+            <div class="quiz-menu-card" onclick="openTopic('htt')">
+                <h2>Bài 3: Hình Trụ Tròn</h2>
+                <div class="card-image">
+                    <img src="../dien-tich-xung-quanh-hinh-tru.png" alt="Hình Trụ Tròn">
+                </div>
+                <p>Trắc nghiệm diện tích xung quanh và thể tích khối trụ tròn.</p>
+                <button class="start-btn">Làm bài ngay</button>
+            </div>
+
+            <div class="quiz-menu-card" onclick="openTopic('ltdtg')">
+                <h2>Bài 4: Lăng Trụ Đứng Tam Giác</h2>
+                <div class="card-image">
+                    <img src="../images (2).png" alt="Hình Lăng Trụ Đứng Tam Giác">
+                </div>
+                <p>Tính diện tích xung quanh và thể tích lăng trụ đứng đáy tam giác.</p>
+                <button class="start-btn">Làm bài ngay</button>
+            </div>
+
+            <div class="quiz-menu-card" onclick="openTopic('ctgd')">
+                <h2>Bài 5: Chóp Tam Giác Đều</h2>
+                <div class="card-image">
+                    <img src="../hinh_chop_tam_giac_deu_la_gi3_d618f4051f.png" alt="Hình Chóp Tam Giác Đều">
+                </div>
+                <p>Kiểm tra đặc điểm đỉnh, mặt đáy tam giác đều và các mặt bên.</p>
+                <button class="start-btn">Làm bài ngay</button>
+            </div>
+
+            <div class="quiz-menu-card" onclick="openTopic('ctgdeu')">
+                <h2>Bài 6: Chóp Tứ Giác Đều</h2>
+                <div class="card-image">
+                    <img src="../img_teacher_2023-08-23_64e5b831cddc4_175 (1).webp" alt="Hình Chóp Tứ Giác Đều">
+                </div>
+                <p>Câu hỏi về thể tích và diện tích xung quanh chóp có đáy là hình vuông.</p>
+                <button class="start-btn">Làm bài ngay</button>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        function openTopic(topic) {
+            const key = topic.toLowerCase();
+            
+            if (key === 'hhcn') {
+                window.location.href = "kiemtrahhcn.html";
+            } else if (key === 'hlp') {
+                window.location.href = "kiemtrahlp.html";
+            } else if (key === 'htt') {
+                window.location.href = "kiemtrahtt.html";
+            } else if (key === 'ltdtg') {
+                window.location.href = "kiemtrahltdtg.html"; 
+            } else if (key === 'ctgd') {
+                window.location.href = "kiemtrahctgd.html";  
+            } else if (key === 'ctgdeu') {
+                window.location.href = "kiemtrahctugd.html"; 
+            } else {
+                alert("Bài trắc nghiệm này đang được cập nhật!");
+            }
+        }
+    </script>
+
+    <script type="module" src="../js/script.js"></script>
+</body>
+</html>

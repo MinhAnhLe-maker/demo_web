@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hồ Sơ Của Bạn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: linear-gradient(135deg, #ffeef5, #f3f0ff);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-main: #4b4453;
+            --accent-color: #ff7eb6;
+            --purple: #a78bfa;
+            --border-radius: 24px;
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 20px; font-family: 'Segoe UI', sans-serif; background: var(--bg-color); min-height: 100vh; display: flex; justify-content: center; align-items: center; color: var(--text-main); }
+        .wrapper { display: flex; gap: 20px; max-width: 1000px; width: 100%; flex-wrap: wrap; justify-content: center; }
+        .profile-card, .stats-side { width: 100%; max-width: 450px; background: var(--card-bg); padding: 30px; border-radius: var(--border-radius); box-shadow: 0 15px 40px rgba(255, 126, 182, 0.2); }
+        .history-box { background: #fff; padding: 15px; border-radius: 15px; border: 1px solid #eee; min-height: 100px; }
+        .history-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f9f9f9; }
+        .avatar-container { position: relative; width: 120px; height: 120px; margin: auto; margin-bottom: 20px; cursor: pointer; }
+        .avatar { width: 100%; height: 100%; border-radius: 50%; border: 5px solid #ffd6ea; display: flex; align-items: center; justify-content: center; overflow: hidden; background: white; }
+        #avatar-img { width: 100%; height: 100%; object-fit: cover; display: none; }
+        .edit-name-btn { border: none; background: #fff0f7; color: #ff5fa2; padding: 8px 15px; border-radius: 999px; cursor: pointer; font-weight: 600; margin-bottom: 15px; }
+        .btn-home { display: block; width: 100%; text-decoration: none; color: white; background: linear-gradient(135deg, var(--accent-color), var(--purple)); padding: 12px; border-radius: 999px; font-weight: bold; margin-top: 20px; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="profile-card" style="text-align: center;">
+        <div class="avatar-container" onclick="document.getElementById('upload-avatar').click()">
+            <div class="avatar">
+                <svg id="default-icon" viewBox="0 0 24 24" width="60" height="60" fill="#bdc3f7"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                <img id="avatar-img" src="" alt="Avatar">
+            </div>
+        </div>
+        <input type="file" id="upload-avatar" accept="image/*" style="display:none;" onchange="previewImage(event)">
+        
+        <h1 id="display-name" style="color: #ff5fa2; margin-bottom: 15px;">Người chơi</h1>
+        
+        <div style="margin-bottom: 20px;">
+            <small style="color: #555; display: block; margin-bottom: 5px;">Danh hiệu cao nhất:</small>
+            <span id="highest-title" style="padding: 1px 20px; border-radius: 20px; font-weight: 500; background: #fff0f7; border: 1.5px solid #ff7eb6; color: #d63384;">Chưa có</span>
+        </div>
+
+        <div id="badge-count" style="margin: 10px 0; color: #ff5fa2; font-weight: bold; font-size: 0.9em;"></div>
+
+        <small style="color: #555;">Tất cả danh hiệu đã đạt được:</small>
+        <div id="danh-hieu-container" style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;"></div>
+        
+        <br>
+        <button class="edit-name-btn" onclick="document.getElementById('name-input-field').style.display='block'">✏️ Chỉnh sửa tên</button>
+        <div id="name-input-field" style="display:none; margin-bottom:15px;">
+            <input type="text" id="new-name" placeholder="Tên mới...">
+            <button onclick="saveName()">Lưu</button>
+        </div>
+        <a href="index.html" class="btn-home">Quay lại trang chính</a>
+    </div>
+
+    <div class="stats-side">
+        <h3><i class="fas fa-chart-line"></i> Lịch sử bài Hình học</h3>
+        <div class="history-box" id="exam-history-list">Chưa có bài thi nào</div>
+        
+        <h3 style="margin-top:30px;"><i class="fas fa-wallet"></i> Nhật ký Xu</h3>
+        <div class="history-box" id="transaction-list">Chưa có giao dịch</div>
+
+        <h3 style="margin-top:30px;"><i class="fas fa-check-circle"></i> Thống kê bài học</h3>
+        <div class="history-box">
+            <p style="margin:0 0 10px 0;">Biểu đồ hoàn thành bài học</p>
+            <div style="background:#eee; height:20px; border-radius:10px; overflow:hidden;">
+                <div id="progress-bar" style="background:#2ecc71; height:100%; width: 0%;"></div>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:0.85em; color:#777; margin-top:8px;">
+                <span>Trả lời đúng: <span id="correct-percent">0%</span></span>
+                <span>Sai/Chưa làm: <span id="wrong-percent">100%</span></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const danhSachDinhNghia = [
+        { name: "Người nhập môn", price: 50, bg: "#f1f2f6", border: "#bdc3f7" },
+        { name: "Tân binh", price: 100, bg: "#f3e5f5", border: "#ce93d8" },
+        { name: "Cậu bé/Cô bé Tập sự", price: 150, bg: "#dff9fb", border: "#7ed6df" },
+        { name: "Học trò tiềm năng", price: 300, bg: "#fff3e0", border: "#ffcc80" },
+        { name: "Tay ngang Hình học", price: 500, bg: "#e8f5e9", border: "#a5d6a7" },
+        { name: "Nhà Toán học trẻ", price: 800, bg: "#ffebee", border: "#ef9a9a" },
+        { name: "Chuyên gia Hình không gian", price: 1200, bg: "#fffde7", border: "#fff59d" },
+        { name: "Nhà Logic học", price: 1600, bg: "#e0f7fa", border: "#b2ebf2" },
+        { name: "Bậc thầy Hình học", price: 2000, bg: "#fce4ec", border: "#f48fb1" },
+        { name: "Nhà phân tích đẳng cấp", price: 2500, bg: "#e1f5fe", border: "#81d4fa" },
+        { name: "Kiến trúc sư tương lai", price: 3000, bg: "#efebe9", border: "#d7ccc8" },
+        { name: "Huyền thoại Hình học", price: 4000, bg: "#fff9c4", border: "#ffd54f" },
+        { name: "Giáo sư Toán học", price: 5000, bg: "#f5f5f5", border: "#9e9e9e" }
+    ];
+
+    window.onload = function() {
+        document.getElementById("display-name").innerText = localStorage.getItem("username") || "Người chơi";
+        const daMua = JSON.parse(localStorage.getItem("danhHieuDaMua")) || ["Người nhập môn"];
+        
+        // Cập nhật số lượng danh hiệu
+        document.getElementById("badge-count").innerText = `Bạn đã đạt ${daMua.length}/12 danh hiệu`;
+        
+        // 1. Tìm danh hiệu cao nhất
+        let highestTitle = "Người nhập môn";
+        let maxPrice = -1;
+        daMua.forEach(ten => {
+            const info = danhSachDinhNghia.find(d => d.name === ten);
+            if (info && info.price > maxPrice) {
+                maxPrice = info.price;
+                highestTitle = ten;
+            }
+        });
+        document.getElementById("highest-title").innerText = highestTitle;
+
+        // 2. Load tất cả danh hiệu
+        const container = document.getElementById("danh-hieu-container");
+        container.innerHTML = ""; 
+        daMua.forEach(ten => {
+            const info = danhSachDinhNghia.find(d => d.name === ten) || { bg: "#eee", border: "#ccc" };
+            const span = document.createElement("span");
+            span.innerText = ten;
+            span.style.padding = "5px 12px";
+            span.style.borderRadius = "15px";
+            span.style.fontSize = "0.85em";
+            span.style.fontWeight = "bold";
+            span.style.color = "#333";
+            span.style.backgroundColor = info.bg;
+            span.style.border = "1.5px solid " + info.border;
+            container.appendChild(span);
+        });
+
+        // Xử lý các phần khác
+        const savedAvatar = localStorage.getItem("userAvatarData");
+        if (savedAvatar) { document.getElementById("avatar-img").src = savedAvatar; document.getElementById("avatar-img").style.display = "block"; document.getElementById("default-icon").style.display = "none"; }
+
+        const exams = JSON.parse(localStorage.getItem("examHistory") || "[]");
+        if (exams.length > 0) {
+            document.getElementById("exam-history-list").innerHTML = exams.map(e => `<div class="history-item"><span>${e.name}</span><b>${e.score}</b></div>`).join('');
+            const lastExam = exams[exams.length - 1].score.split('/');
+            const percent = (parseInt(lastExam[0]) / parseInt(lastExam[1])) * 100;
+            document.getElementById("progress-bar").style.width = percent + "%";
+            document.getElementById("correct-percent").innerText = Math.round(percent) + "%";
+            document.getElementById("wrong-percent").innerText = Math.round(100 - percent) + "%";
+        }
+
+        const trans = JSON.parse(localStorage.getItem("transactionHistory") || "[]");
+        if (trans.length > 0) { document.getElementById("transaction-list").innerHTML = trans.map(t => `<div class="history-item"><span>${t.desc}</span><b>${t.val}</b></div>`).join(''); }
+    };
+
+    function previewImage(event) {
+        const reader = new FileReader();
+        reader.onload = function() { localStorage.setItem("userAvatarData", reader.result); document.getElementById("avatar-img").src = reader.result; document.getElementById("avatar-img").style.display = "block"; document.getElementById("default-icon").style.display = "none"; };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+
+    function saveName() {
+        const name = document.getElementById("new-name").value;
+        if (name) { localStorage.setItem("username", name); document.getElementById("display-name").innerText = name; }
+    }
+</script>
+</body>
+</html>

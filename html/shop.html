@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thăng Cấp Danh Hiệu</title>
+    <style>
+        body{ font-family:'Segoe UI',sans-serif; background:#fffaf0; text-align:center; padding:20px; }
+        .back-btn{ position:fixed; top:20px; left:20px; background:white; color:#4b7bec; text-decoration:none; padding:12px 22px; border-radius:16px; font-weight:bold; box-shadow:0 8px 20px rgba(0,0,0,0.08); transition:0.3s; z-index:999; }
+        .back-btn:hover{ transform:translateY(-3px); background:#4b7bec; color:white; }
+        .header-box{ background:#fff; padding:20px; border-radius:25px; box-shadow:0 4px 15px rgba(0,0,0,0.1); display:inline-block; margin-bottom:30px; }
+        .container{ display:flex; justify-content:center; gap:15px; flex-wrap:wrap; max-width:1000px; margin:auto; }
+        .shop-item{ background:white; border-radius:20px; padding:20px; width:200px; box-shadow:0 5px 15px rgba(0,0,0,0.05); transition:0.3s; border: 2px solid #ffd6ea; }
+        .shop-item:hover{ transform:translateY(-5px) scale(1.03); }
+        .badge-icon{ font-size: 40px; margin-bottom: 10px; }
+        .btn-doi{ background:#ff9ff3; color:white; border:none; padding:10px 15px; border-radius:20px; cursor:pointer; font-weight:bold; width:100%; margin-top:10px; }
+        .btn-owned{ background:#dcdde1; color:#7f8c8d; cursor:not-allowed; }
+        #so-xu{ color:#e84393; font-weight:bold; }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-btn">← Trang chủ</a>
+
+    <div class="header-box">
+        <h1>✨ Nâng Cấp Danh Hiệu ✨</h1>
+        <h2>Xu của bạn: <span id="so-xu">0</span> 💰</h2>
+    </div>
+
+    <div class="container" id="danh-sach"></div>
+
+    <script>
+        // Danh sách danh hiệu có thể mua
+       const danhSachDanhHieu = [
+    { name: "Người nhập môn", price: 50, icon: "🔍" },
+    { name: "Cậu bé/Cô bé Tập sự", price: 150, icon: "✏️" },
+    { name: "Học trò tiềm năng", price: 300, icon: "📖" },
+    { name: "Tay ngang Hình học", price: 500, icon: "📏" },
+    { name: "Nhà Toán học trẻ", price: 800, icon: "📐" },
+    { name: "Chuyên gia Hình không gian", price: 1200, icon: "💠" },
+    { name: "Nhà Logic học", price: 1600, icon: "🧠" },
+    { name: "Bậc thầy Hình học", price: 2000, icon: "🖋️" },
+    { name: "Nhà phân tích đẳng cấp", price: 2500, icon: "📊" },
+    { name: "Kiến trúc sư tương lai", price: 3000, icon: "🏛️" },
+    { name: "Huyền thoại Hình học", price: 4000, icon: "⭐" },
+    { name: "Giáo sư Toán học", price: 5000, icon: "🎓" }
+];
+
+        let xu = parseInt(localStorage.getItem("tongXu")) || 0;
+        // Chúng ta dùng key 'danhHieuDaMua' để lưu các danh hiệu đã mở khóa
+        let daMua = JSON.parse(localStorage.getItem("danhHieuDaMua")) || ["Tân binh"];
+
+        document.getElementById("so-xu").innerText = xu;
+        const container = document.getElementById("danh-sach");
+
+        danhSachDanhHieu.forEach((dh) => {
+            const isOwned = daMua.includes(dh.name);
+            container.innerHTML += `
+                <div class="shop-item">
+                    <div class="badge-icon">${dh.icon}</div>
+                    <h3>${dh.name}</h3>
+                    <p>${dh.price} xu</p>
+                    <button class="btn-doi ${isOwned ? 'btn-owned' : ''}" 
+                            onclick="muaDanhHieu('${dh.name}', ${dh.price})" 
+                            ${isOwned ? 'disabled' : ''}>
+                            ${isOwned ? 'Đã sở hữu' : 'Mở khóa'}
+                    </button>
+                </div>
+            `;
+        });
+
+        function muaDanhHieu(ten, gia) {
+            if (xu >= gia) {
+                xu -= gia;
+                localStorage.setItem("tongXu", xu);
+                daMua.push(ten);
+                localStorage.setItem("danhHieuDaMua", JSON.stringify(daMua));
+                
+                // Đồng thời cập nhật danh hiệu chính đang đeo (ví dụ: dùng danh hiệu mới nhất)
+                localStorage.setItem("currentTitle", ten);
+                
+                alert("Chúc mừng! Bạn đã nhận danh hiệu: " + ten + "! 🎉");
+                location.reload();
+            } else {
+                alert("Không đủ xu để thăng cấp danh hiệu này! Hãy luyện tập thêm nhé! 📚");
+            }
+        }
+    </script>
+</body>
+</html>
