@@ -458,17 +458,18 @@ function openTopic(topic) {
 }
 
 window.openTopic = openTopic;
-// Đóng/Mở Menu
-const hamburgerBtn = document.getElementById("hamburger-btn");
-const menu = document.querySelector(".menu");
-
-hamburgerBtn.addEventListener("click", () => {
-    menu.classList.toggle("active");
-});
 
 // Tự đóng menu khi click vào các link
 document.querySelectorAll(".menu a").forEach(link => {
     link.addEventListener("click", () => {
         menu.classList.remove("active");
     });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburgerBtn = document.getElementById("hamburger-btn");
+  const menu = document.querySelector(".menu"); // Đảm bảo class này khớp với HTML
+
+  hamburgerBtn.addEventListener("click", () => {
+    menu.classList.toggle("active");
+  });
 });

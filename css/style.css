@@ -1,6 +1,4 @@
-/* =========================================================
-   RESET
-========================================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -22,16 +20,13 @@ body {
 }
 
 /* =========================================================
-   ROOT
+   GLOBAL
 ========================================================= */
 :root {
     --primary-color: #00a8e8;
     --dark-color: #0f172a;
 }
 
-/* =========================================================
-   GLOBAL
-========================================================= */
 img,
 iframe,
 video {
@@ -81,7 +76,6 @@ video {
 .logo {
     display: flex;
     align-items: center;
-
     gap: 10px;
 
     font-size: 1.5rem;
@@ -97,14 +91,11 @@ video {
 ========================================================= */
 .menu {
     display: flex;
-    align-items: center;
-
     gap: 30px;
 }
 
 .menu a {
     text-decoration: none;
-
     color: #475569;
 
     font-size: 0.95rem;
@@ -118,14 +109,13 @@ video {
 }
 
 /* =========================================================
-   HAMBURGER BUTTON
+   HAMBURGER
 ========================================================= */
 .hamburger-btn {
     width: 45px;
     height: 45px;
 
     display: none;
-
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -142,12 +132,9 @@ video {
     height: 3px;
 
     background: black;
-
     border-radius: 10px;
 
     transition: 0.3s;
-
-    display: block;
 }
 
 /* =========================================================
@@ -175,17 +162,24 @@ video {
 .btn-outline {
     border: 2px solid var(--primary-color);
 
-    background: transparent;
-
     color: var(--primary-color);
+
+    background: transparent;
 
     margin-right: 10px;
 }
+.btn-outline:hover {
+  background: #0284c7;
+}
 
 .btn-fill {
-    background: var(--primary-color);
+    border: 2px solid var(--primary-color);
 
-    color: white;
+    color: var(--primary-color);
+
+    background: transparent;
+
+    margin-right: 10px;
 }
 
 .btn-fill:hover {
@@ -196,15 +190,12 @@ video {
    HERO
 ========================================================= */
 .hero-banner {
-  
-    min-height: 50vh !important; /* Đổi từ 720px thành 50vh để nó tự co theo máy */
-
     position: relative;
 
     margin-top: 70px;
 
     width: 100%;
-  
+    min-height: 720px;
 
     overflow: hidden;
 
@@ -241,13 +232,11 @@ video {
     max-width: 900px;
 
     text-align: center;
-
     color: white;
 }
 
 .hero-content h1 {
     font-size: 64px;
-
     line-height: 1.2;
 
     margin-bottom: 20px;
@@ -266,7 +255,6 @@ video {
     border-radius: 14px;
 
     background: var(--primary-color);
-
     color: white;
 
     font-size: 20px;
@@ -304,7 +292,6 @@ video {
 
 .importance-container {
     display: grid;
-
     grid-template-columns: repeat(4, 1fr);
 
     gap: 25px;
@@ -342,7 +329,6 @@ video {
 
 .importance-card p {
     line-height: 1.7;
-
     color: #475569;
 }
 
@@ -391,10 +377,9 @@ video {
 
     margin-top: 10px;
 
-    text-decoration: none;
-
     color: var(--primary-color);
 
+    text-decoration: none;
     font-weight: bold;
 }
 
@@ -422,7 +407,6 @@ video {
     margin: auto;
 
     display: grid;
-
     grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
 
     gap: 25px;
@@ -448,63 +432,65 @@ video {
     transition: 0.3s;
 
     cursor: pointer;
+    border-bottom: 6px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
 }
 
 .card:hover {
     transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
-/* =========================================================
-   CARD INNER
-========================================================= */
-.card-inner {
-    display: flex;
-    flex-direction: column;
+.card h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-top: 15px;
+    transition: color 0.3s ease;
+}
 
+.card:hover h2 {
+    color: var(--primary-color);
+}
+
+.icon {
+    margin: 0 auto 20px;
+    display: flex;
     align-items: center;
     justify-content: center;
+    height: 60px;
+    transition: transform 0.3s ease;
 }
 
-/* =========================================================
-   ICONS
-========================================================= */
-.icon {
-    margin-bottom: 20px;
-
-    flex-shrink: 0;
-
-    display: block;
+.card:hover .icon {
+    transform: scale(1.1);
 }
 
-/* HÌNH TRÒN */
 .icon.circle {
-    width: 70px;
-    height: 70px;
-
-    background: #3b82f6;
-
+    width: 60px;
+    height: 60px;
+    background-color: #ff4d4d; /* Bright red circle */
     border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(255, 77, 77, 0.3);
 }
 
-/* TAM GIÁC */
 .icon.triangle {
     width: 0;
     height: 0;
-
-    border-left: 35px solid transparent;
-    border-right: 35px solid transparent;
-
-    border-bottom: 65px solid #10b981;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 52px solid #2ecc71; /* Green triangle pointing up */
+    filter: drop-shadow(0 4px 6px rgba(46, 204, 113, 0.3));
+    margin: 0 auto 25px; /* Centering horizontally and adjusting margin since height is 0 */
 }
 
-/* HÌNH VUÔNG */
 .icon.cube {
-    width: 60px;
-    height: 60px;
-
-    background: #f59e0b;
-
-    border-radius: 8px;
+    width: 55px;
+    height: 55px;
+    background-color: #ffa502; /* Bright orange square */
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(255, 165, 2, 0.3);
 }
 
 /* =========================================================
@@ -512,7 +498,6 @@ video {
 ========================================================= */
 .footer {
     background: #0f172a;
-
     color: white;
 
     padding: 50px 20px;
@@ -555,6 +540,11 @@ video {
     cursor: pointer;
 }
 
+/* Mobile Auth Buttons inside vertical menu (Desktop default hidden) */
+.mobile-auth-buttons {
+    display: none;
+}
+
 /* =========================================================
    RESPONSIVE
 ========================================================= */
@@ -572,15 +562,7 @@ video {
 
 @media screen and (max-width: 768px) {
 
-    /* HAMBURGER */
-    .hamburger-btn {
-        display: flex;
-
-        position: relative;
-        z-index: 2000;
-    }
-
-    /* MENU MOBILE */
+    /* MENU */
     .menu {
         position: fixed;
 
@@ -588,8 +570,7 @@ video {
         right: -100%;
 
         width: 250px;
-
-        bottom: 0;
+        height: calc(100vh - 70px);
 
         background: white;
 
@@ -597,20 +578,17 @@ video {
 
         padding: 30px 20px;
 
-        gap: 20px;
-
-        transition: right 0.3s ease;
-
-        overflow-y: auto;
-
-        z-index: 1500;
+        transition: 0.3s;
     }
 
     .menu.active {
         right: 0;
     }
 
-    /* AUTH */
+    .hamburger-btn {
+        display: flex;
+    }
+
     .auth-buttons {
         display: none;
     }
@@ -638,7 +616,39 @@ video {
         font-size: 28px;
     }
 
+    .mobile-auth-buttons {
+        display: block;
+        margin-top: 25px;
+        border-top: 1px solid #e2e8f0;
+        padding-top: 20px;
+        width: 100%;
+    }
+
+    .auth-flex-mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .mobile-btn {
+        width: 100%;
+        text-align: center;
+        margin-right: 0 !important;
+        padding: 12px;
+        display: block;
+    }
+
+    .user-greeting-mobile {
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 8px;
+        display: block;
+        font-size: 0.95rem;
+    }
+
 }
+
 
 @media screen and (max-width: 600px) {
 
@@ -653,17 +663,134 @@ video {
 }
 
 /* =========================================================
-   FIX LANDSCAPE
+   VIDEO MODAL POPUP (80% Width)
 ========================================================= */
-@media screen and (orientation: landscape) and (max-width: 1000px) {
-
-    .hamburger-btn {
-        width: 45px;
-        height: 45px;
-    }
-
-    .hamburger-btn span {
-        width: 28px;
-    }
-
+#videoModal {
+    display: none;
+    position: fixed;
+    z-index: 10000; /* overlay all items including fixed header */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.75); /* Dark slate semi-transparent overlay */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    overflow-y: auto;
+    animation: fadeInModal 0.3s ease-out;
 }
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#videoModal .modal-content {
+    background-color: #ffffff;
+    margin: 60px auto; /* Centered with top offset */
+    width: 80%;
+    max-width: 1000px;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    animation: slideUpModal 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideUpModal {
+    from { transform: translateY(40px) scale(0.95); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 36px;
+    font-weight: 300;
+    color: #94a3b8;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10002;
+    line-height: 1;
+}
+
+.modal-close-btn:hover {
+    color: #ef4444;
+    transform: scale(1.15) rotate(90deg);
+}
+
+.video-container-16-9 {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+    background: #0f172a;
+}
+
+.video-container-16-9 iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Chỉ áp dụng cho màn hình điện thoại */
+@media screen and (max-width: 768px) {
+    /* 1. Reset lại menu để không ảnh hưởng đến các phần tử con */
+    .menu {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    /* 2. ẨN KHỐI AUTH CŨ (Khối đang bị méo) */
+    .nav-container .auth-buttons {
+        display: none !important;
+    }
+
+    /* 3. HIỂN THỊ KHỐI AUTH MỚI (Khối dành riêng cho Mobile) */
+    .mobile-auth-buttons {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 10px !important;
+        margin-top: 20px !important;
+    }
+}
+/* =========================================================
+   FIX GIAO DIỆN DESKTOP (Màn hình > 768px)
+========================================================= */
+@media screen and (min-width: 769px) {
+    .nav-container {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important; /* Logo trái, Menu+Auth phải */
+        padding: 0 20px;
+        
+    }
+
+    .menu {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 30px !important;
+        margin-right: auto;    /* ĐẨY MENU VỀ BÊN TRÁI HƠN */
+        margin-left: 150px;     /* TẠO KHOẢNG CÁCH VỚI LOGO */
+        align-items: flex-end;    /* Đẩy nội dung xuống đáy */
+    justify-content: center;  /* Căn giữa theo chiều ngang */
+    padding-bottom: 10px;     /* Tùy chỉnh khoảng cách sát đáy */
+    
+
+  
+    }
+
+    .auth-buttons {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 15px !important;
+        margin-left: 0 !important; /* BỎ AUTO ĐỂ NÓ KHÔNG BỊ ĐẨY SÁT LỀ PHẢI */
+    }
+}
+

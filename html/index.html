@@ -1,238 +1,359 @@
-<!doctype html>
+```html
+<!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
+
+<head>
+    <meta charset="UTF-8">
 
     <!-- FIX RESPONSIVE -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>MathSpace</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
 
     <!-- FONT AWESOME -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-  </head>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
 
-  <body>
+<body>
+
     <!-- =========================================================
          NAVBAR
     ========================================================== -->
     <header class="top-nav">
-      <div class="nav-container">
-        <div class="logo">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/3413/3413535.png"
-            alt="logo"
-          />
-          <span>Math<b class="text-blue">Space</b></span>
+
+        <div class="nav-container">
+
+            <!-- LOGO -->
+            <div class="logo">
+                <img src="https://cdn-icons-png.flaticon.com/512/3413/3413535.png" alt="logo">
+
+                <span>
+                    Math<b class="text-blue">Space</b>
+                </span>
+            </div>
+
+            <!-- HAMBURGER -->
+            <div class="hamburger-btn" id="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+                
+            </div>
+
+            <!-- MENU -->
+            <nav class="menu">
+
+                <a href="detail.html">
+                    Thông tin chi tiết
+                </a>
+
+                <a href="../html/test.html">
+                    Kiểm tra
+                </a>
+
+                <a href="../html/shop.html">
+                    Cửa hàng
+                </a>
+
+                <a href="../html/profile.html">
+                    Profile
+                </a>
+                    <!-- AUTH -->
+            <div class="auth-buttons">
+
+                <!-- CHƯA ĐĂNG NHẬP -->
+                <div id="logged-out-view" class="auth-flex">
+
+                    <a href="login.html" class="btn btn-outline">
+                        Đăng nhập
+                    </a>
+
+                    <a href="register.html" class="btn btn-fill">
+                        Đăng ký
+                    </a>
+
+                </div>
+
+                <!-- ĐÃ ĐĂNG NHẬP -->
+                <div id="logged-in-view"
+                    class="auth-flex"
+                    style="display: none;">
+
+                    <span id="user-name"></span>
+
+                    <button id="logout-btn"
+                        class="btn btn-outline">
+
+                        Đăng xuất
+
+                    </button>
+
+                </div>
+
+            </div>
+                
+
+            </nav>
+
+        
+
         </div>
 
-        <div class="hamburger-btn" id="hamburger-btn">
-          <span></span><span></span><span></span><span></span>
-        </div>
-
-        <nav class="menu">
-          <a href="detail.html">Thông tin chi tiết</a>
-          <a href="../html/test.html">Kiểm tra</a>
-          <a href="../html/shop.html">Cửa hàng</a>
-          <a href="../html/profile.html">Profile</a>
-
-          <div class="auth-buttons">
-            <div id="logged-out-view" class="auth-flex">
-              <a href="login.html" class="btn btn-outline">Đăng nhập</a>
-              <a href="register.html" class="btn btn-fill">Đăng ký</a>
-            </div>
-            <div id="logged-in-view" class="auth-flex" style="display: none">
-              <span id="user-name"></span>
-              <button id="logout-btn" class="btn btn-outline">Đăng xuất</button>
-            </div>
-          </div>
-        </nav>
-      </div>
     </header>
 
     <!-- =========================================================
          HERO BANNER
     ========================================================== -->
     <section class="hero-banner">
-      <img
-        src="../pngtree-colorful-geometric-symbols-education-math-formula-background-image_763119.jpg"
-        alt="banner"
-      />
 
-      <div class="hero-content">
-        <h1>Biến Toán Hình thành điều đơn giản</h1>
+        <img src="../pngtree-colorful-geometric-symbols-education-math-formula-background-image_763119.jpg"
+            alt="banner">
 
-        <p>Khám phá sức mạnh của hình học</p>
+        <div class="hero-content">
 
-        <button class="btn-large">Bắt đầu học ngay</button>
-      </div>
+            <h1>
+                Biến Toán Hình thành điều đơn giản
+            </h1>
+
+            <p>
+                Khám phá sức mạnh của hình học
+            </p>
+
+            <button class="btn-large">
+                Bắt đầu học ngay
+            </button>
+
+        </div>
+
     </section>
 
     <!-- =========================================================
          TẦM QUAN TRỌNG
     ========================================================== -->
     <section class="importance-section">
-      <h2 class="section-title">Tầm Quan Trọng Của Việc Học Toán</h2>
 
-      <div class="importance-container">
-        <div class="importance-card">
-          <i class="fas fa-brain"></i>
+        <h2 class="section-title">
+            Tầm Quan Trọng Của Việc Học Toán
+        </h2>
 
-          <h3>Rèn luyện tư duy</h3>
+        <div class="importance-container">
 
-          <p>
-            Toán học giúp phát triển khả năng suy luận logic và giải quyết vấn
-            đề hiệu quả hơn.
-          </p>
+            <div class="importance-card">
+
+                <i class="fas fa-brain"></i>
+
+                <h3>Rèn luyện tư duy</h3>
+
+                <p>
+                    Toán học giúp phát triển khả năng suy luận logic
+                    và giải quyết vấn đề hiệu quả hơn.
+                </p>
+
+            </div>
+
+            <div class="importance-card">
+
+                <i class="fas fa-lightbulb"></i>
+
+                <h3>Kích thích sáng tạo</h3>
+
+                <p>
+                    Một bài toán có thể có nhiều cách giải khác nhau,
+                    giúp học sinh tư duy linh hoạt.
+                </p>
+
+            </div>
+
+            <div class="importance-card">
+
+                <i class="fas fa-book"></i>
+
+                <h3>Ứng dụng thực tế</h3>
+
+                <p>
+                    Toán học được sử dụng trong đo lường, xây dựng,
+                    công nghệ và cuộc sống hằng ngày.
+                </p>
+
+            </div>
+
+            <div class="importance-card">
+
+                <i class="fas fa-graduation-cap"></i>
+
+                <h3>Nền tảng tương lai</h3>
+
+                <p>
+                    Toán là môn học quan trọng cho nhiều ngành nghề
+                    như kỹ sư, lập trình và kinh tế.
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="importance-card">
-          <i class="fas fa-lightbulb"></i>
-
-          <h3>Kích thích sáng tạo</h3>
-
-          <p>
-            Một bài toán có thể có nhiều cách giải khác nhau, giúp học sinh tư
-            duy linh hoạt.
-          </p>
-        </div>
-
-        <div class="importance-card">
-          <i class="fas fa-book"></i>
-
-          <h3>Ứng dụng thực tế</h3>
-
-          <p>
-            Toán học được sử dụng trong đo lường, xây dựng, công nghệ và cuộc
-            sống hằng ngày.
-          </p>
-        </div>
-
-        <div class="importance-card">
-          <i class="fas fa-graduation-cap"></i>
-
-          <h3>Nền tảng tương lai</h3>
-
-          <p>
-            Toán là môn học quan trọng cho nhiều ngành nghề như kỹ sư, lập trình
-            và kinh tế.
-          </p>
-        </div>
-      </div>
     </section>
 
     <!-- =========================================================
          Ý NGHĨA HỌC TOÁN
     ========================================================== -->
     <section class="meaning-section">
-      <div class="meaning-wrapper">
-        <!-- IMAGE -->
-        <div class="image-side">
-          <img src="../hoc-toan.jpg" alt="Học toán" />
+
+        <div class="meaning-wrapper">
+
+            <!-- IMAGE -->
+            <div class="image-side">
+
+                <img src="../hoc-toan.jpg"
+                    alt="Học toán">
+
+            </div>
+
+            <!-- CONTENT -->
+            <div class="content-side">
+
+                <h2 class="section-title">
+                    Ý NGHĨA CỦA VIỆC HỌC TOÁN
+                </h2>
+
+                <div class="main-content">
+
+                    <p>
+                        Việc học Toán mang lại những giá trị to lớn
+                        cho sự phát triển của học sinh.
+                    </p>
+
+                    <p>
+                        Toán học giúp rèn luyện tư duy logic,
+                        khả năng phân tích và giải quyết vấn đề.
+                    </p>
+
+                    <p>
+                        Đây là nền tảng quan trọng cho nhiều ngành nghề
+                        trong tương lai.
+                    </p>
+
+                    <a href="#"
+                        class="btn-more">
+
+                        XEM THÊM →
+
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <!-- CONTENT -->
-        <div class="content-side">
-          <h2 class="section-title">Ý NGHĨA CỦA VIỆC HỌC TOÁN</h2>
-
-          <div class="main-content">
-            <p>
-              Việc học Toán mang lại những giá trị to lớn cho sự phát triển của
-              học sinh.
-            </p>
-
-            <p>
-              Toán học giúp rèn luyện tư duy logic, khả năng phân tích và giải
-              quyết vấn đề.
-            </p>
-
-            <p>
-              Đây là nền tảng quan trọng cho nhiều ngành nghề trong tương lai.
-            </p>
-
-            <a href="#" class="btn-more"> XEM THÊM → </a>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- =========================================================
          HÌNH HỌC
     ========================================================== -->
     <section class="geometry-section">
-      <h3 class="geometry-subtitle">Hình học phẳng cơ bản</h3>
 
-      <main class="grid-container">
-        <!-- HÌNH TRÒN -->
-        <div class="card" onclick="playVideo(this, 'cTS5KHiE91M')">
-          <div class="card-inner">
-            <div class="icon circle"></div>
+        <h3 class="geometry-subtitle">
+            Hình học phẳng cơ bản
+        </h3>
 
-            <h2>Hình Tròn</h2>
-          </div>
+        <main class="grid-container">
 
-          <div class="video-target"></div>
-        </div>
+            <!-- HÌNH TRÒN -->
+            <div class="card"
+                onclick="playVideo(this,'cTS5KHiE91M')">
 
-        <!-- TAM GIÁC -->
-        <div class="card" onclick="playVideo(this, 'W3UzjLDA6M4')">
-          <div class="card-inner">
-            <div class="icon triangle"></div>
+                <div class="card-inner">
 
-            <h2>Hình Tam Giác</h2>
-          </div>
+                    <div class="icon circle"></div>
 
-          <div class="video-target"></div>
-        </div>
+                    <h2>Hình Tròn</h2>
 
-        <!-- HÌNH VUÔNG -->
-        <div class="card" onclick="playVideo(this, 'W3UzjLDA6M4')">
-          <div class="card-inner">
-            <div class="icon cube"></div>
+                </div>
 
-            <h2>Hình Vuông</h2>
-          </div>
+                <div class="video-target"></div>
 
-          <div class="video-target"></div>
-        </div>
-      </main>
+            </div>
+
+            <!-- TAM GIÁC -->
+            <div class="card"
+                onclick="playVideo(this,'W3UzjLDA6M4')">
+
+                <div class="card-inner">
+
+                    <div class="icon triangle"></div>
+
+                    <h2>Hình Tam Giác</h2>
+
+                </div>
+
+                <div class="video-target"></div>
+
+            </div>
+
+            <!-- HÌNH VUÔNG -->
+            <div class="card"
+                onclick="playVideo(this,'W3UzjLDA6M4')">
+
+                <div class="card-inner">
+
+                    <div class="icon cube"></div>
+
+                    <h2>Hình Vuông</h2>
+
+                </div>
+
+                <div class="video-target"></div>
+
+            </div>
+
+        </main>
+
     </section>
 
     <!-- =========================================================
          FOOTER
     ========================================================== -->
     <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/3413/3413535.png"
-            alt="logo"
-          />
 
-          <span> Math<b class="text-blue">Space</b> </span>
+        <div class="footer-content">
+
+            <div class="footer-logo">
+
+                <img src="https://cdn-icons-png.flaticon.com/512/3413/3413535.png"
+                    alt="logo">
+
+                <span>
+                    Math<b class="text-blue">Space</b>
+                </span>
+
+            </div>
+
+            <p>
+                © 2026 MathSpace - Website học toán hình học dành cho học sinh.
+            </p>
+
+            <div class="footer-icons">
+
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-github"></i>
+
+            </div>
+
         </div>
 
-        <p>© 2026 MathSpace - Website học toán hình học dành cho học sinh.</p>
-
-        <div class="footer-icons">
-          <i class="fab fa-facebook"></i>
-          <i class="fab fa-youtube"></i>
-          <i class="fab fa-github"></i>
-        </div>
-      </div>
     </footer>
 
     <!-- JS -->
     <script type="module" src="../js/script.js"></script>
-  </body>
+
+</body>
+
 </html>
+
