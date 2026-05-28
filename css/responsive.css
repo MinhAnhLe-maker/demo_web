@@ -1,41 +1,39 @@
 @media screen and (max-width: 768px) {
-    /* 1. Ép Nav container nằm ngang, Logo và Hamburger ở trên */
+    /* 1. Ép header tự co giãn, không bị cắt nội dung */
+    .top-nav {
+        height: auto !important;
+        overflow: visible !important;
+    }
+
     .nav-container {
         display: flex !important;
-        flex-direction: row !important;
+        flex-wrap: wrap !important; /* Cho phép xuống dòng nếu chật */
         justify-content: space-between !important;
         align-items: center !important;
-        position: relative !important;
+        width: 100% !important;
         padding: 10px !important;
     }
 
-    /* 2. Cố định Logo và Auth buttons để không bị mất */
-    .logo, .auth-buttons {
-        display: flex !important;
-        order: 1; /* Logo đứng đầu */
-    }
-    .auth-buttons { order: 3; } /* Nút Đăng nhập đứng cuối */
+    /* 2. Cố định logo và nút auth */
+    .logo { order: 1; }
+    .hamburger-btn { order: 2; display: flex !important; }
+    .auth-buttons { order: 3; display: flex !important; }
 
-    /* 3. Nút Hamburger */
-    .hamburger-btn {
-        display: flex !important;
-        order: 2; /* Nằm giữa */
-        cursor: pointer;
-    }
-
-    /* 4. Menu chỉ xổ xuống, KHÔNG che phần header chính */
+    /* 3. Menu nằm dưới cùng */
     .menu {
         display: none !important;
-        position: absolute !important;
-        top: 100% !important; /* Luôn nằm ngay dưới header */
-        left: 0;
-        width: 100%;
-        background: white !important;
+        order: 4; /* Luôn xuống hàng dưới cùng */
+        width: 100% !important;
         flex-direction: column !important;
-        padding: 20px !important;
-        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-        z-index: 9999 !important;
+        background: #fff;
+        padding: 15px 0 !important;
+        margin-top: 10px;
     }
-
     .menu.show { display: flex !important; }
+    
+    /* 4. Giảm kích thước nút để vừa màn hình */
+    .auth-buttons .btn {
+        padding: 4px 8px !important;
+        font-size: 10px !important;
+    }
 }
