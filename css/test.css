@@ -448,29 +448,42 @@
     border: none;
     transition: all 0.2s ease;
 }
-/* --- CODE RESPONSIVE BỔ SUNG --- */
+/* ==========================================================================
+   THIẾT LẬP RESPONSIVE HOÀN CHỈNH (Dán vào cuối file CSS)
+   ========================================================================== */
+
 @media screen and (max-width: 768px) {
-    /* Đảm bảo toàn bộ trang không bị tràn ngang */
-    body { width: 100%; overflow-x: hidden; }
+    /* 1. Reset cơ bản */
+    body { width: 100% !important; overflow-x: hidden !important; }
 
-    /* Header: Xếp dọc menu và logo */
-    .nav-container { flex-direction: column; text-align: center; }
-    .menu { flex-direction: column; gap: 10px; margin: 10px 0; }
-    .auth-buttons { margin-top: 10px; }
+    /* 2. Header & Nav */
+    .nav-container { flex-direction: column !important; text-align: center !important; }
+    .menu { flex-direction: column !important; gap: 10px !important; margin: 10px 0 !important; }
+    .auth-buttons { margin-top: 10px !important; }
 
-    /* Banner: Thu nhỏ ảnh banner */
-    .hero-banner img { height: auto; max-height: 200px; width: 100%; object-fit: cover; }
-    .hero-content h1 { font-size: 20px; }
+    /* 3. Hero Banner */
+    .hero-banner img { height: auto !important; max-height: 200px !important; width: 100% !important; object-fit: cover !important; }
+    .hero-content h1 { font-size: 20px !important; }
 
-    /* Phần Tầm quan trọng: Chuyển sang 1 cột */
-    .importance-container { flex-direction: column; align-items: center; }
-    .importance-card { width: 90% !important; }
+    /* 4. Importance Section */
+    .importance-container { flex-direction: column !important; align-items: center !important; }
+    .importance-card { width: 90% !important; margin: 10px 0 !important; }
 
-    /* Phần Ý nghĩa: Chuyển từ hàng ngang sang chồng lên nhau */
+    /* 5. Meaning Section */
     .meaning-wrapper { flex-direction: column !important; }
-    .image-side img { width: 100%; height: auto; }
+    .image-side img { width: 100% !important; height: auto !important; }
 
-    /* Phần Hình học: Chuyển grid thành 1 cột */
+    /* 6. Quiz Grid & Cards */
+    .quiz-grid-33 { grid-template-columns: 1fr !important; gap: 15px !important; }
+    .quiz-menu-card { width: 95% !important; margin: 0 auto !important; height: auto !important; }
     .grid-container { grid-template-columns: 1fr !important; }
-    .card { width: 90% !important; margin: 10px auto; }
+    .card { width: 90% !important; margin: 10px auto !important; }
+
+    /* 7. Quiz Header & Navigation */
+    .quiz-header-container { flex-direction: column !important; gap: 15px !important; margin-top: 20px !important; }
+    .quiz-title-box { margin-right: 0 !important; }
+    .navigation-buttons, .quiz-navigation { position: relative !important; bottom: auto !important; margin-top: 20px !important; }
+    
+    /* 8. Fix nút trắc nghiệm trên điện thoại */
+    #prev-btn, #next-btn { width: 45% !important; height: 40px !important; font-size: 14px !important; }
 }
