@@ -160,16 +160,19 @@ video {
 }
 
 .btn-outline {
-    border: 2px solid var(--primary-color);
-
-    color: var(--primary-color);
-
-    background: transparent;
-
-    margin-right: 10px;
+    padding: 10px 20px;
+    border: 2px solid #00aaff;
+    border-radius: 10px;
+    background: white;
+    color: #00aaff;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 5px; /* khoảng cách nhỏ với tên */
 }
+
 .btn-outline:hover {
-  background: #0284c7;
+    background: #0284c7;
+    color: white;
 }
 
 .btn-fill {

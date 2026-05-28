@@ -47,3 +47,14 @@
         text-align: center;
     }
 }
+#logged-in-view{
+    display: none;
+}
+/* Không cho logout tự hiện trên mobile */
+@media screen and (max-width: 768px) {
+
+    #logged-in-view {
+        display: none;
+    }
+
+}
