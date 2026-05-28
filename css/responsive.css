@@ -1,37 +1,41 @@
 @media screen and (max-width: 768px) {
-    /* 1. Ép Nav container không được tràn */
+    /* 1. Ép Nav container nằm ngang, Logo và Hamburger ở trên */
     .nav-container {
         display: flex !important;
         flex-direction: row !important;
-        align-items: center !important;
         justify-content: space-between !important;
-        width: 100% !important;
-        padding: 0 10px !important;
-    }
-
-    /* 2. Menu chỉ hiện khi bấm (JS thêm class show) */
-    .menu {
-        display: none !important; /* Ẩn đi khi chưa bấm */
-        position: absolute;
-        top: 60px; left: 0; width: 100%;
-        background: white; padding: 20px;
-        flex-direction: column !important;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        z-index: 1000;
-    }
-    .menu.show { display: flex !important; }
-
-    /* 3. ĐẢM BẢO NÚT ĐĂNG NHẬP/ĐĂNG KÝ LUÔN HIỆN */
-    .auth-buttons {
-        display: flex !important; /* Quan trọng: Phải là flex */
-        flex-direction: row !important;
         align-items: center !important;
-        gap: 5px !important; /* Khoảng cách nhỏ để vừa màn hình */
+        position: relative !important;
+        padding: 10px !important;
     }
 
-    /* Giảm size chữ nút trên điện thoại để không bị mất nút */
-    .auth-buttons .btn {
-        padding: 5px 8px !important;
-        font-size: 11px !important;
+    /* 2. Cố định Logo và Auth buttons để không bị mất */
+    .logo, .auth-buttons {
+        display: flex !important;
+        order: 1; /* Logo đứng đầu */
     }
+    .auth-buttons { order: 3; } /* Nút Đăng nhập đứng cuối */
+
+    /* 3. Nút Hamburger */
+    .hamburger-btn {
+        display: flex !important;
+        order: 2; /* Nằm giữa */
+        cursor: pointer;
+    }
+
+    /* 4. Menu chỉ xổ xuống, KHÔNG che phần header chính */
+    .menu {
+        display: none !important;
+        position: absolute !important;
+        top: 100% !important; /* Luôn nằm ngay dưới header */
+        left: 0;
+        width: 100%;
+        background: white !important;
+        flex-direction: column !important;
+        padding: 20px !important;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        z-index: 9999 !important;
+    }
+
+    .menu.show { display: flex !important; }
 }
