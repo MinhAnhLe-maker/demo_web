@@ -1,40 +1,37 @@
-/* --- ÉP HEADER NẰM NGANG BẰNG MỌI GIÁ --- */
 @media screen and (max-width: 768px) {
+    /* 1. Ép Nav container không được tràn */
     .nav-container {
         display: flex !important;
-        flex-direction: row !important; /* Ép về hàng ngang */
-        justify-content: space-between !important;
+        flex-direction: row !important;
         align-items: center !important;
-        flex-wrap: nowrap !important; /* Không cho phép xuống dòng */
-        overflow: hidden !important;   /* Cắt phần thừa nếu menu quá dài */
+        justify-content: space-between !important;
         width: 100% !important;
+        padding: 0 10px !important;
     }
 
-    /* Thu nhỏ mọi thứ trong Header để nó "vừa" hàng ngang */
-    .logo, .menu a, .btn {
-        white-space: nowrap !important; /* Không cho xuống dòng chữ */
-        font-size: 12px !important;    /* Giảm font cho vừa */
-        padding: 0 5px !important;     /* Giảm khoảng cách để tiết kiệm chỗ */
-    }
-
-    .menu { 
-        display: none !important; 
+    /* 2. Menu chỉ hiện khi bấm (JS thêm class show) */
+    .menu {
+        display: none !important; /* Ẩn đi khi chưa bấm */
         position: absolute;
         top: 60px; left: 0; width: 100%;
-        background: #fff; padding: 20px;
+        background: white; padding: 20px;
         flex-direction: column !important;
-        z-index: 999;
- 
-}
-.auth-buttons {
-        display: flex !important; /* Đảm bảo nó luôn hiện */
-        flex-direction: row !important; /* Ép hàng ngang */
-        margin-left: auto; /* Đẩy sang góc phải */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        z-index: 1000;
     }
-    /* 3. Khi menu mở ra thì hiện nó */
-    .menu.show-menu { display: flex !important; }
-    /* 1. Mặc định: Nút Hamburger bị ẩn, Menu hiển thị bình thường */
-.hamburger-btn { display: none; cursor: pointer; padding: 10px; }
-.hamburger-btn span { display: block; width: 25px; height: 3px; background: #333; margin: 5px 0; }
+    .menu.show { display: flex !important; }
 
+    /* 3. ĐẢM BẢO NÚT ĐĂNG NHẬP/ĐĂNG KÝ LUÔN HIỆN */
+    .auth-buttons {
+        display: flex !important; /* Quan trọng: Phải là flex */
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 5px !important; /* Khoảng cách nhỏ để vừa màn hình */
+    }
+
+    /* Giảm size chữ nút trên điện thoại để không bị mất nút */
+    .auth-buttons .btn {
+        padding: 5px 8px !important;
+        font-size: 11px !important;
+    }
 }
