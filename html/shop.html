@@ -2,6 +2,8 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/responsive.css">
     <title>Thăng Cấp Danh Hiệu</title>
     <style>
         body{ font-family:'Segoe UI',sans-serif; background:#fffaf0; text-align:center; padding:20px; }
@@ -16,32 +18,7 @@
         .btn-owned{ background:#dcdde1; color:#7f8c8d; cursor:not-allowed; }
         #so-xu{ color:#e84393; font-weight:bold; }
         /* --- CODE RESPONSIVE BỔ SUNG --- */
-@media screen and (max-width: 768px) {
-    /* Đảm bảo toàn bộ trang không bị tràn ngang */
-    body { width: 100%; overflow-x: hidden; }
 
-    /* Header: Xếp dọc menu và logo */
-    .nav-container { flex-direction: column; text-align: center; }
-    .menu { flex-direction: column; gap: 10px; margin: 10px 0; }
-    .auth-buttons { margin-top: 10px; }
-
-    /* Banner: Thu nhỏ ảnh banner */
-    .hero-banner img { height: auto; max-height: 200px; width: 100%; object-fit: cover; }
-    .hero-content h1 { font-size: 20px; }
-
-    /* Phần Tầm quan trọng: Chuyển sang 1 cột */
-    .importance-container { flex-direction: column; align-items: center; }
-    .importance-card { width: 90% !important; }
-
-    /* Phần Ý nghĩa: Chuyển từ hàng ngang sang chồng lên nhau */
-    .meaning-wrapper { flex-direction: column !important; }
-    .image-side img { width: 100%; height: auto; }
-
-    /* Phần Hình học: Chuyển grid thành 1 cột */
-    .grid-container { grid-template-columns: 1fr !important; }
-    .card { width: 90% !important; margin: 10px auto; }
-}
-       
     </style>
 </head>
 <body>
