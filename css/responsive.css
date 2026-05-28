@@ -1,30 +1,34 @@
-/* --- TRỊ DỨT ĐIỂM BỆNH TRÀN TRANG --- */
 @media screen and (max-width: 768px) {
-    /* 1. Ép toàn bộ khung hình không được tràn */
-    html, body {
+    /* Ép header luôn nằm trên cùng và không tràn */
+    .top-nav {
+        position: fixed !important; /* Giữ nó ở trên */
         width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        overflow-x: hidden !important; /* Loại bỏ thanh kéo ngang */
+        height: 60px !important; /* Cố định chiều cao thấp thôi */
+        padding: 0 10px !important;
     }
 
-    /* 2. Ép Header nằm gọn trong màn hình */
-    .top-nav {
-        position: relative !important;
-        width: 100% !important;
-        height: auto !important;
-        padding: 10px 5% !important;
-    }
-    
     .nav-container {
         display: flex !important;
-        flex-direction: column !important;
+        flex-direction: row !important; /* Ép về hàng ngang */
+        justify-content: space-between !important;
+        align-items: center !important;
         width: 100% !important;
+        height: 100% !important;
     }
 
-    /* 3. Ép mọi phần tử con không được vượt quá 100% màn hình */
-    * {
-        max-width: 100vw !important;
-        box-sizing: border-box !important;
+    /* Thu nhỏ logo */
+    .logo { font-size: 1rem !important; }
+    .logo img { width: 30px !important; }
+
+    /* Ẩn bớt menu hoặc thu nhỏ chữ để nó không bị đẩy xuống hàng */
+    .menu a {
+        font-size: 0.75rem !important;
+        margin: 0 5px !important;
+    }
+
+    /* Nút đăng nhập bé lại */
+    .btn {
+        padding: 5px 10px !important;
+        font-size: 0.75rem !important;
     }
 }
