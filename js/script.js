@@ -359,8 +359,6 @@ window.playVideo = playVideo;
    QUIZ SYSTEM
 ========================= */
 
-
-
 function backToQuizList() {
   document.getElementById("quizContentArea").style.display = "none";
 
@@ -458,21 +456,9 @@ function openTopic(topic) {
 }
 
 window.openTopic = openTopic;
-// Chờ DOM tải xong
-document.addEventListener('DOMContentLoaded', () => {
-    const navContainer = document.querySelector('.nav-container');
-    const menu = document.querySelector('.menu');
+const hamburger = document.getElementById("hamburger-btn");
+const menu = document.querySelector(".menu");
 
-    // Tạo nút Hamburger
-    const hamburger = document.createElement('div');
-    hamburger.className = 'hamburger-btn';
-    hamburger.innerHTML = '<span></span><span></span><span></span>';
-    
-    // Chèn nút vào trước menu (giữa logo và menu)
-    navContainer.insertBefore(hamburger, menu);
-
-    // Sự kiện Click để mở/đóng
-    hamburger.addEventListener('click', () => {
-        menu.classList.toggle('show');
-    });
+hamburger.addEventListener("click", () => {
+  menu.classList.toggle("show");
 });
