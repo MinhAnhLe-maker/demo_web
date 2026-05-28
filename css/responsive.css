@@ -1,28 +1,26 @@
-/* --- CODE ÉP GIAO DIỆN KHI ĐIỆN THOẠI ĐỂ THẲNG ĐỨNG --- */
-@media screen and (max-width: 500px) {
-    /* 1. Ép header về hàng ngang nhưng cực kỳ gọn */
-    .top-nav {
-        height: 50px !important;
-        padding: 0 5px !important;
-    }
+/* --- ÉP HEADER NẰM NGANG BẰNG MỌI GIÁ --- */
+@media screen and (max-width: 768px) {
     .nav-container {
-        flex-direction: row !important; /* Luôn giữ hàng ngang */
+        display: flex !important;
+        flex-direction: row !important; /* Ép về hàng ngang */
         justify-content: space-between !important;
-    }
-    
-    /* 2. Giấu bớt chữ trong menu để không bị tràn */
-    .menu {
-        display: none !important; /* Tạm ẩn menu, hoặc dùng code dưới để thu nhỏ */
-    }
-    
-    /* 3. Ép ảnh banner và các khung nội dung co lại đúng 100% */
-    img, .hero-banner, .card {
+        align-items: center !important;
+        flex-wrap: nowrap !important; /* Không cho phép xuống dòng */
+        overflow: hidden !important;   /* Cắt phần thừa nếu menu quá dài */
         width: 100% !important;
-        height: auto !important;
-        object-fit: contain !important;
     }
 
-    /* 4. Giảm tối đa font-size */
-    body { font-size: 13px !important; }
-    h1 { font-size: 20px !important; }
+    /* Thu nhỏ mọi thứ trong Header để nó "vừa" hàng ngang */
+    .logo, .menu a, .btn {
+        white-space: nowrap !important; /* Không cho xuống dòng chữ */
+        font-size: 12px !important;    /* Giảm font cho vừa */
+        padding: 0 5px !important;     /* Giảm khoảng cách để tiết kiệm chỗ */
+    }
+
+    /* Ẩn bớt các mục menu không quan trọng nếu cần */
+    .menu {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 5px !important;
+    }
 }
