@@ -64,27 +64,6 @@
                     Profile
                 </a>
 
-                <!-- Mobile Auth Buttons -->
-                <div class="mobile-auth-buttons">
-                    <!-- CHƯA ĐĂNG NHẬP (MOBILE) -->
-                    <div id="logged-out-view-mobile" class="auth-flex-mobile">
-                        <a href="login.html" class="btn btn-outline mobile-btn">
-                            Đăng nhập
-                        </a>
-                        <a href="register.html" class="btn btn-fill mobile-btn">
-                            Đăng ký
-                        </a>
-                    </div>
-
-                    <!-- ĐÃ ĐĂNG NHẬP (MOBILE) -->
-                    <div id="logged-in-view-mobile" class="auth-flex-mobile" style="display: none;">
-                        <span id="user-name-mobile" class="user-greeting-mobile"></span>
-                        <button id="logout-btn-mobile" class="btn btn-outline mobile-btn">
-                            Đăng xuất
-                        </button>
-                    </div>
-                </div>
-
             </nav>
 
             <!-- AUTH -->
@@ -285,7 +264,7 @@
 
             <!-- HÌNH TRÒN -->
             <div class="card"
-                onclick="openVideo('cTS5KHiE91M')">
+                onclick="playVideo(this,'cTS5KHiE91M')">
 
                 <div class="card-inner">
 
@@ -295,11 +274,13 @@
 
                 </div>
 
+                <div class="video-target"></div>
+
             </div>
 
             <!-- TAM GIÁC -->
             <div class="card"
-                onclick="openVideo('W3UzjLDA6M4')">
+                onclick="playVideo(this,'W3UzjLDA6M4')">
 
                 <div class="card-inner">
 
@@ -309,11 +290,13 @@
 
                 </div>
 
+                <div class="video-target"></div>
+
             </div>
 
             <!-- HÌNH VUÔNG -->
             <div class="card"
-                onclick="openVideo('W3UzjLDA6M4')">
+                onclick="playVideo(this,'W3UzjLDA6M4')">
 
                 <div class="card-inner">
 
@@ -322,6 +305,8 @@
                     <h2>Hình Vuông</h2>
 
                 </div>
+
+                <div class="video-target"></div>
 
             </div>
 
@@ -362,22 +347,6 @@
         </div>
 
     </footer>
-
-    <!-- VIDEO MODAL POPUP -->
-    <div id="videoModal" class="modal-overlay">
-        <div class="modal-content">
-            <span class="modal-close-btn" onclick="closeVideo()">&times;</span>
-            <div class="video-container-16-9">
-                <iframe id="youtubePlayer" 
-                        src="" 
-                        title="YouTube video player" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowfullscreen>
-                </iframe>
-            </div>
-        </div>
-    </div>
 
     <!-- JS -->
     <script type="module" src="../js/script.js"></script>

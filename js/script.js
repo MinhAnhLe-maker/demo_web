@@ -40,15 +40,6 @@ const userNameDisplay = document.getElementById("user-name");
 
 const logoutBtn = document.getElementById("logout-btn");
 
-// Mobile views elements
-const loggedOutViewMobile = document.getElementById("logged-out-view-mobile");
-
-const loggedInViewMobile = document.getElementById("logged-in-view-mobile");
-
-const userNameDisplayMobile = document.getElementById("user-name-mobile");
-
-const logoutBtnMobile = document.getElementById("logout-btn-mobile");
-
 /* =========================
    KIỂM TRA TRẠNG THÁI LOGIN
 ========================= */
@@ -59,20 +50,14 @@ onAuthStateChanged(auth, (user) => {
   // =========================
 
   if (user) {
-    // Ẩn login/register (Desktop & Mobile)
+    // Ẩn login/register
     if (loggedOutView) {
       loggedOutView.style.display = "none";
     }
-    if (loggedOutViewMobile) {
-      loggedOutViewMobile.style.display = "none";
-    }
 
-    // Hiện user (Desktop & Mobile)
+    // Hiện user
     if (loggedInView) {
       loggedInView.style.display = "flex";
-    }
-    if (loggedInViewMobile) {
-      loggedInViewMobile.style.display = "flex";
     }
 
     // Tạo tên hiển thị
@@ -81,12 +66,9 @@ onAuthStateChanged(auth, (user) => {
       localStorage.getItem("username") ||
       user.email.split("@")[0];
 
-    // Hiện tên (Desktop & Mobile)
+    // Hiện tên
     if (userNameDisplay) {
       userNameDisplay.textContent = "Chào, " + displayName;
-    }
-    if (userNameDisplayMobile) {
-      userNameDisplayMobile.textContent = "Chào, " + displayName;
     }
 
     // =========================
@@ -107,28 +89,19 @@ onAuthStateChanged(auth, (user) => {
   // CHƯA ĐĂNG NHẬP
   // =========================
   else {
-    // Hiện login/register (Desktop & Mobile)
+    // Hiện login/register
     if (loggedOutView) {
       loggedOutView.style.display = "flex";
     }
-    if (loggedOutViewMobile) {
-      loggedOutViewMobile.style.display = "flex";
-    }
 
-    // Ẩn user (Desktop & Mobile)
+    // Ẩn user
     if (loggedInView) {
       loggedInView.style.display = "none";
     }
-    if (loggedInViewMobile) {
-      loggedInViewMobile.style.display = "none";
-    }
 
-    // Reset text (Desktop & Mobile)
+    // Reset text
     if (userNameDisplay) {
       userNameDisplay.textContent = "";
-    }
-    if (userNameDisplayMobile) {
-      userNameDisplayMobile.textContent = "";
     }
   }
 });
@@ -137,7 +110,7 @@ onAuthStateChanged(auth, (user) => {
    ĐĂNG XUẤT
 ========================= */
 
-const handleSignOut = () => {
+logoutBtn?.addEventListener("click", () => {
   signOut(auth)
     .then(() => {
       // Xóa dữ liệu local
@@ -154,10 +127,7 @@ const handleSignOut = () => {
 
       alert("Có lỗi khi đăng xuất!");
     });
-};
-
-logoutBtn?.addEventListener("click", handleSignOut);
-logoutBtnMobile?.addEventListener("click", handleSignOut);
+});
 
 /* =========================
    STICKY HEADER
@@ -197,14 +167,11 @@ const modalInfo = document.getElementById("modalInfo");
 
 cards.forEach((card) => {
   card.addEventListener("click", () => {
-    const videoSrc = card.getAttribute("data-video");
-
-    // Chỉ kích hoạt modal cục bộ nếu thẻ có chứa nguồn video cục bộ (như ở detail.html)
-    if (!videoSrc) return;
-
     const title = card.getAttribute("data-title");
 
     const info = card.getAttribute("data-info");
+
+    const videoSrc = card.getAttribute("data-video");
 
     if (modalTitle) {
       modalTitle.innerText = title || "";
@@ -214,7 +181,7 @@ cards.forEach((card) => {
       modalInfo.innerText = info || "";
     }
 
-    if (mainVideo) {
+    if (mainVideo && videoSrc) {
       mainVideo.src = videoSrc;
 
       mainVideo.play();
@@ -235,12 +202,6 @@ function closeModal() {
     mainVideo.pause();
 
     mainVideo.src = "";
-  }
-
-  // Also stop YouTube video if active
-  const player = document.getElementById("youtubePlayer");
-  if (player) {
-    player.src = "";
   }
 }
 
@@ -279,10 +240,6 @@ function closeVideo() {
 
   modal.style.display = "none";
 }
-
-// Export functions to window for HTML inline access (module scope protection bypass)
-window.openVideo = openVideo;
-window.closeVideo = closeVideo;
 
 /* =========================
    VIDEO INLINE
