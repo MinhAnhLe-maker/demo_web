@@ -1,31 +1,15 @@
-/* --- TRẢ LẠI GIAO DIỆN KHI XOAY NGANG --- */
+/* --- 1. Cấu hình cho màn hình lớn (Máy tính/Xoay ngang rộng) --- */
 @media screen and (min-width: 769px) {
-    /* Ép tất cả trở về trạng thái "bình thường" của máy tính */
-    .nav-container {
-        flex-wrap: nowrap !important;
-        overflow: visible !important;
+    .nav-container { flex-wrap: nowrap !important; overflow: visible !important; }
+    .logo, .menu a, .btn { font-size: 16px !important; padding: 0 15px !important; }
+    .hamburger-btn { display: none !important; }
+    .menu { 
+        display: flex !important; position: static !important; 
+        background: transparent !important; flex-direction: row !important; padding: 0 !important; 
     }
+}
 
-    /* Trả lại kích thước chữ và padding mặc định */
-    .logo, .menu a, .btn {
-        font-size: 16px !important; /* Hoặc kích thước gốc của bạn */
-        padding: 0 15px !important;
-    }
-
-    /* Ẩn nút Hamburger đi vì xoay ngang đã đủ chỗ hiện menu */
-    .hamburger-btn {
-        display: none !important;
-    }
-
-    /* Đảm bảo menu luôn hiện khi màn hình đủ rộng */
-    .menu {
-        display: flex !important;
-        position: static !important;
-        background: transparent !important;
-        flex-direction: row !important;
-        padding: 0 !important;
-    }
-    /* Chặn cuộn ngang toàn trang */
+/* --- 2. Cấu hình xử lý lỗi Banner và tràn trang (Dùng chung cho mọi màn hình) --- */
 html, body {
     overflow-x: hidden !important;
     width: 100% !important;
@@ -33,7 +17,6 @@ html, body {
     padding: 0 !important;
 }
 
-/* Ép banner luôn nằm gọn trong khung hình */
 .hero-banner, .banner {
     width: 100vw !important;
     max-width: 100% !important;
@@ -42,7 +25,6 @@ html, body {
     position: relative !important;
 }
 
-/* Ép ảnh con trong banner luôn nghe lời */
 .hero-banner img, .banner img {
     width: 100% !important;
     height: auto !important;
@@ -50,10 +32,9 @@ html, body {
     display: block !important;
 }
 
-/* Xử lý riêng khi xoay ngang */
-@media screen and (orientation: landscape) {
+/* --- 3. Xử lý riêng khi xoay ngang điện thoại (Giới hạn banner) --- */
+@media screen and (orientation: landscape) and (max-width: 900px) {
     .hero-banner, .banner {
         max-height: 80vh !important;
     }
-}
 }
