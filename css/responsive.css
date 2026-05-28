@@ -1,40 +1,28 @@
-/* --- ÉP HEADER NẰM NGANG BẰNG MỌI GIÁ --- */
-@media screen and (max-width: 768px) {
+/* --- TRẢ LẠI GIAO DIỆN KHI XOAY NGANG --- */
+@media screen and (min-width: 769px) {
+    /* Ép tất cả trở về trạng thái "bình thường" của máy tính */
     .nav-container {
-        display: flex !important;
-        flex-direction: row !important; /* Ép về hàng ngang */
-        justify-content: space-between !important;
-        align-items: center !important;
-        flex-wrap: nowrap !important; /* Không cho phép xuống dòng */
-        overflow: hidden !important;   /* Cắt phần thừa nếu menu quá dài */
-        width: 100% !important;
+        flex-wrap: nowrap !important;
+        overflow: visible !important;
     }
 
-    /* Thu nhỏ mọi thứ trong Header để nó "vừa" hàng ngang */
+    /* Trả lại kích thước chữ và padding mặc định */
     .logo, .menu a, .btn {
-        white-space: nowrap !important; /* Không cho xuống dòng chữ */
-        font-size: 12px !important;    /* Giảm font cho vừa */
-        padding: 0 5px !important;     /* Giảm khoảng cách để tiết kiệm chỗ */
+        font-size: 16px !important; /* Hoặc kích thước gốc của bạn */
+        padding: 0 15px !important;
     }
 
-    .menu { 
-        display: none !important; 
-        position: absolute;
-        top: 60px; left: 0; width: 100%;
-        background: #fff; padding: 20px;
-        flex-direction: column !important;
-        z-index: 999;
- 
-}
-.auth-buttons {
-        display: flex !important; /* Đảm bảo nó luôn hiện */
-        flex-direction: row !important; /* Ép hàng ngang */
-        margin-left: auto; /* Đẩy sang góc phải */
+    /* Ẩn nút Hamburger đi vì xoay ngang đã đủ chỗ hiện menu */
+    .hamburger-btn {
+        display: none !important;
     }
-    /* 3. Khi menu mở ra thì hiện nó */
-    .menu.show-menu { display: flex !important; }
-    /* 1. Mặc định: Nút Hamburger bị ẩn, Menu hiển thị bình thường */
-.hamburger-btn { display: none; cursor: pointer; padding: 10px; }
-.hamburger-btn span { display: block; width: 25px; height: 3px; background: #333; margin: 5px 0; }
 
+    /* Đảm bảo menu luôn hiện khi màn hình đủ rộng */
+    .menu {
+        display: flex !important;
+        position: static !important;
+        background: transparent !important;
+        flex-direction: row !important;
+        padding: 0 !important;
+    }
 }
