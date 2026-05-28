@@ -1,4 +1,6 @@
-
+/* =========================================================
+   RESET
+========================================================= */
 * {
     margin: 0;
     padding: 0;
@@ -20,13 +22,16 @@ body {
 }
 
 /* =========================================================
-   GLOBAL
+   ROOT
 ========================================================= */
 :root {
     --primary-color: #00a8e8;
     --dark-color: #0f172a;
 }
 
+/* =========================================================
+   GLOBAL
+========================================================= */
 img,
 iframe,
 video {
@@ -76,6 +81,7 @@ video {
 .logo {
     display: flex;
     align-items: center;
+
     gap: 10px;
 
     font-size: 1.5rem;
@@ -91,11 +97,14 @@ video {
 ========================================================= */
 .menu {
     display: flex;
+    align-items: center;
+
     gap: 30px;
 }
 
 .menu a {
     text-decoration: none;
+
     color: #475569;
 
     font-size: 0.95rem;
@@ -109,13 +118,14 @@ video {
 }
 
 /* =========================================================
-   HAMBURGER
+   HAMBURGER BUTTON
 ========================================================= */
 .hamburger-btn {
     width: 45px;
     height: 45px;
 
     display: none;
+
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -132,9 +142,12 @@ video {
     height: 3px;
 
     background: black;
+
     border-radius: 10px;
 
     transition: 0.3s;
+
+    display: block;
 }
 
 /* =========================================================
@@ -162,15 +175,16 @@ video {
 .btn-outline {
     border: 2px solid var(--primary-color);
 
-    color: var(--primary-color);
-
     background: transparent;
+
+    color: var(--primary-color);
 
     margin-right: 10px;
 }
 
 .btn-fill {
     background: var(--primary-color);
+
     color: white;
 }
 
@@ -224,11 +238,13 @@ video {
     max-width: 900px;
 
     text-align: center;
+
     color: white;
 }
 
 .hero-content h1 {
     font-size: 64px;
+
     line-height: 1.2;
 
     margin-bottom: 20px;
@@ -247,6 +263,7 @@ video {
     border-radius: 14px;
 
     background: var(--primary-color);
+
     color: white;
 
     font-size: 20px;
@@ -284,6 +301,7 @@ video {
 
 .importance-container {
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
 
     gap: 25px;
@@ -321,6 +339,7 @@ video {
 
 .importance-card p {
     line-height: 1.7;
+
     color: #475569;
 }
 
@@ -369,9 +388,10 @@ video {
 
     margin-top: 10px;
 
+    text-decoration: none;
+
     color: var(--primary-color);
 
-    text-decoration: none;
     font-weight: bold;
 }
 
@@ -399,6 +419,7 @@ video {
     margin: auto;
 
     display: grid;
+
     grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
 
     gap: 25px;
@@ -431,31 +452,38 @@ video {
 }
 
 /* =========================================================
-   ICONS
+   CARD INNER
 ========================================================= */
-.icon {
-    margin: 0 auto 20px auto;
+.card-inner {
+    display: flex;
+    flex-direction: column;
 
-    display: block;
-
-    transition: all 0.3s ease;
+    align-items: center;
+    justify-content: center;
 }
 
 /* =========================================================
-   HÌNH TRÒN
+   ICONS
 ========================================================= */
+.icon {
+    margin-bottom: 20px;
+
+    flex-shrink: 0;
+
+    display: block;
+}
+
+/* HÌNH TRÒN */
 .icon.circle {
     width: 70px;
     height: 70px;
 
-    background-color: #3b82f6;
+    background: #3b82f6;
 
     border-radius: 50%;
 }
 
-/* =========================================================
-   TAM GIÁC
-========================================================= */
+/* TAM GIÁC */
 .icon.triangle {
     width: 0;
     height: 0;
@@ -466,14 +494,12 @@ video {
     border-bottom: 65px solid #10b981;
 }
 
-/* =========================================================
-   HÌNH VUÔNG
-========================================================= */
+/* HÌNH VUÔNG */
 .icon.cube {
     width: 60px;
     height: 60px;
 
-    background-color: #f59e0b;
+    background: #f59e0b;
 
     border-radius: 8px;
 }
@@ -483,6 +509,7 @@ video {
 ========================================================= */
 .footer {
     background: #0f172a;
+
     color: white;
 
     padding: 50px 20px;
@@ -542,7 +569,15 @@ video {
 
 @media screen and (max-width: 768px) {
 
-    /* MENU */
+    /* HAMBURGER */
+    .hamburger-btn {
+        display: flex;
+
+        position: relative;
+        z-index: 2000;
+    }
+
+    /* MENU MOBILE */
     .menu {
         position: fixed;
 
@@ -550,7 +585,8 @@ video {
         right: -100%;
 
         width: 250px;
-        height: calc(100vh - 70px);
+
+        bottom: 0;
 
         background: white;
 
@@ -558,17 +594,20 @@ video {
 
         padding: 30px 20px;
 
-        transition: 0.3s;
+        gap: 20px;
+
+        transition: right 0.3s ease;
+
+        overflow-y: auto;
+
+        z-index: 1500;
     }
 
     .menu.active {
         right: 0;
     }
 
-    .hamburger-btn {
-        display: flex;
-    }
-
+    /* AUTH */
     .auth-buttons {
         display: none;
     }
@@ -610,3 +649,18 @@ video {
 
 }
 
+/* =========================================================
+   FIX LANDSCAPE
+========================================================= */
+@media screen and (orientation: landscape) and (max-width: 1000px) {
+
+    .hamburger-btn {
+        width: 45px;
+        height: 45px;
+    }
+
+    .hamburger-btn span {
+        width: 28px;
+    }
+
+}
