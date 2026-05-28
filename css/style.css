@@ -430,8 +430,52 @@ video {
     transform: translateY(-8px);
 }
 
+/* =========================================================
+   ICONS
+========================================================= */
 .icon {
-    margin: 0 auto 20px;
+    margin: 0 auto 20px auto;
+
+    display: block;
+
+    transition: all 0.3s ease;
+}
+
+/* =========================================================
+   HÌNH TRÒN
+========================================================= */
+.icon.circle {
+    width: 70px;
+    height: 70px;
+
+    background-color: #3b82f6;
+
+    border-radius: 50%;
+}
+
+/* =========================================================
+   TAM GIÁC
+========================================================= */
+.icon.triangle {
+    width: 0;
+    height: 0;
+
+    border-left: 35px solid transparent;
+    border-right: 35px solid transparent;
+
+    border-bottom: 65px solid #10b981;
+}
+
+/* =========================================================
+   HÌNH VUÔNG
+========================================================= */
+.icon.cube {
+    width: 60px;
+    height: 60px;
+
+    background-color: #f59e0b;
+
+    border-radius: 8px;
 }
 
 /* =========================================================
@@ -565,37 +609,5 @@ video {
     }
 
 }
-/* =========================================================
-   ICON SHAPES
-========================================================= */
 
-/* HÌNH TRÒN */
-.icon.circle {
-    width: 70px;
-    height: 70px;
-
-    background: #3b82f6;
-
-    border-radius: 50%;
-}
-
-/* TAM GIÁC */
-.icon.triangle {
-    width: 0;
-    height: 0;
-
-    border-left: 40px solid transparent;
-    border-right: 40px solid transparent;
-    border-bottom: 70px solid #10b981;
-}
-
-/* HÌNH VUÔNG */
-.icon.cube {
-    width: 60px;
-    height: 60px;
-
-    background: #f59e0b;
-
-    border-radius: 10px;
-}
 
