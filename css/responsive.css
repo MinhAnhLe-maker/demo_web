@@ -1,40 +1,97 @@
-/* --- 1. Cấu hình cho màn hình lớn (Máy tính/Xoay ngang rộng) --- */
-@media screen and (min-width: 769px) {
-    .nav-container { flex-wrap: nowrap !important; overflow: visible !important; }
-    .logo, .menu a, .btn { font-size: 16px !important; padding: 0 15px !important; }
-    .hamburger-btn { display: none !important; }
-    .menu { 
-        display: flex !important; position: static !important; 
-        background: transparent !important; flex-direction: row !important; padding: 0 !important; 
+/* =========================================================
+   HAMBURGER BUTTON
+========================================================= */
+.hamburger-btn {
+    width: 45px;
+    height: 45px;
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+}
+
+/* 4 GẠCH */
+.hamburger-btn span {
+    width: 28px;
+    height: 3px;
+
+    background: black;
+    border-radius: 10px;
+
+    transition: 0.3s;
+
+    display: block;
+}
+
+/* =========================================================
+   MENU DESKTOP
+========================================================= */
+.menu {
+    display: flex;
+    gap: 30px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+@media screen and (max-width: 768px) {
+
+    /* HIỆN HAMBURGER */
+    .hamburger-btn {
+        display: flex;
+    }
+
+    /* MENU MOBILE */
+    .menu {
+        position: fixed;
+
+        top: 80px;
+        right: -100%;
+
+        width: 250px;
+        height: calc(100vh - 80px);
+
+        background: white;
+
+        flex-direction: column;
+
+        padding: 30px 20px;
+
+        gap: 20px;
+
+        transition: 0.3s;
+    }
+
+    /* KHI MỞ MENU */
+    .menu.active {
+        right: 0;
     }
 }
 
-/* --- 2. Cấu hình xử lý lỗi Banner và tràn trang (Dùng chung cho mọi màn hình) --- */
-html, body {
-    overflow-x: hidden !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
+/* =========================================================
+   FIX LANDSCAPE
+========================================================= */
+@media screen and (orientation: landscape) {
 
-.hero-banner, .banner {
-    width: 100vw !important;
-    max-width: 100% !important;
-    height: auto !important;
-    overflow: hidden !important;
-    position: relative !important;
-}
+    .hamburger-btn {
+        width: 40px;
+        height: 40px;
+    }
 
-.hero-banner img, .banner img {
-    width: 100% !important;
-    height: auto !important;
-    object-fit: cover !important;
-    display: block !important;
-}
-
-/* --- 3. Xử lý riêng khi xoay ngang điện thoại (Giới hạn banner) --- */
-@media screen and (orientation: landscape) and (max-width: 900px) {
-    .hero-banner, .banner {
-        max-height: 80vh !important;
+    .hamburger-btn span {
+        width: 24px;
     }
 }

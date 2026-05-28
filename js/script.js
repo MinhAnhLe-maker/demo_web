@@ -456,9 +456,9 @@ function openTopic(topic) {
 }
 
 window.openTopic = openTopic;
-const hamburger = document.getElementById("hamburger-btn");
+const hamburgerBtn = document.getElementById("hamburger-btn");
 const menu = document.querySelector(".menu");
 
-hamburger.addEventListener("click", () => {
-  menu.classList.toggle("show");
+hamburgerBtn.addEventListener("click", () => {
+  menu.classList.toggle("active");
 });
