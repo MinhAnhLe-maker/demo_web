@@ -1,60 +1,138 @@
 @media screen and (max-width: 768px) {
-    /* Ép menu ẩn đi khi chưa bấm */
-    .menu {
-        position: fixed !important;
-        top: 70px !important;
-        right: -250px !important; /* Đẩy hẳn ra ngoài màn hình */
-        width: 250px !important;
-        height: 100vh !important;
-        background: white !important;
-        display: flex !important;
-        flex-direction: column !important;
-        padding: 40px 20px !important;
-        transition: 0.3s ease !important;
-        z-index: 9999 !important; /* Đè lên mọi thứ */
-        box-shadow: -5px 0 15px rgba(0,0,0,0.2) !important;
+
+    /* Top Navigation on Mobile */
+    .top-nav {
+        height: 70px !important;
+        /* Keep it fixed height on mobile */
     }
 
-    /* Khi có class .active thì trượt vào */
+    .nav-container {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 0 15px;
+    }
+
+    /* Hamburger Menu Button */
+    .hamburger-btn {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 6px !important;
+        width: 40px !important;
+        height: 40px !important;
+        cursor: pointer;
+        z-index: 10000;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger-btn span {
+        display: block;
+        width: 24px;
+        height: 2.5px;
+        background-color: #1e293b;
+        border-radius: 4px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Hamburger Active/Open State Animation (forming an X) */
+    .hamburger-btn.active span:nth-child(1) {
+        transform: translateY(8.5px) rotate(45deg);
+    }
+
+    .hamburger-btn.active span:nth-child(2) {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    .hamburger-btn.active span:nth-child(3) {
+        transform: translateY(-8.5px) rotate(-45deg);
+    }
+
+    /* Slide-out Menu Panel */
+    .menu {
+        position: fixed !important;
+        top: 0 !important;
+        right: -300px !important;
+        /* Fully hidden off-screen */
+        width: 280px !important;
+        height: 100vh !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 90px 24px 40px 24px !important;
+        /* Top padding is larger to clear the floating header */
+        gap: 15px !important;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        z-index: 9999 !important;
+        box-shadow: -10px 0 30px rgba(15, 23, 42, 0.08) !important;
+        border-left: 1px solid rgba(226, 232, 240, 0.8) !important;
+    }
+
     .menu.active {
         right: 0 !important;
     }
 
-    /* Ép hiển thị nút Đăng nhập bên trong menu */
+    /* Menu Links */
+    .menu > a {
+        width: 100% !important;
+        padding: 12px 16px !important;
+        font-size: 1.05rem !important;
+        font-weight: 550 !important;
+        color: #334155 !important;
+        border-radius: 8px;
+        background: transparent;
+        transition: all 0.3s ease !important;
+    }
+
+    .menu > a:hover {
+        color: var(--primary-color) !important;
+        background: rgba(0, 168, 232, 0.05) !important;
+        padding-left: 20px !important;
+    }
+
+    /* Auth Buttons container in Menu */
     .menu .auth-buttons {
         display: flex !important;
         flex-direction: column !important;
-        margin-top: 20px !important;
+        width: 100% !important;
+        margin-top: auto !important;
+        /* Pushes to the bottom */
+        padding-top: 20px !important;
+        border-top: 1px solid rgba(226, 232, 240, 0.8) !important;
         visibility: visible !important;
     }
-}
-@media screen and (max-width: 768px) {
-    /* ... các đoạn code cũ khác ... */
 
-    /* Ép khối chứa 2 nút thành cột dọc */
+    /* Auth flex (No display override here so JS style.display="none"/"flex" works perfectly!) */
     .menu .auth-flex {
-        display: flex !important;
-        flex-direction: column !important; /* ĐÂY LÀ DÒNG QUAN TRỌNG NHẤT */
-        gap: 10px; /* Khoảng cách giữa 2 nút */
-        width: 100%;
+        flex-direction: column !important;
+        gap: 12px !important;
+        width: 100% !important;
     }
 
-    /* Ép từng nút phải full chiều rộng của menu */
-    .menu .auth-flex a, 
+    /* Individual Auth Buttons styling */
+    .menu .auth-flex a,
     .menu .auth-flex button {
         width: 100% !important;
-        margin-right: 0 !important; /* Xóa khoảng cách phải để nó không bị lệch */
-        text-align: center;
-    }
-}
-#logged-in-view{
-    display: none;
-}
-/* Không cho logout tự hiện trên mobile */
-@media screen and (max-width: 768px) {
-
-    #logged-in-view {
-        display: none;
+        margin: 0 !important;
+        padding: 12px !important;
+        text-align: center !important;
+        display: block !important;
+        border-radius: 10px !important;
+        font-weight: 600 !important;
     }
 
+    /* User welcome greeting text */
+    #user-name {
+        display: block !important;
+        text-align: center !important;
+        font-weight: 600 !important;
+        color: #475569 !important;
+        margin-bottom: 8px !important;
+        font-size: 0.95rem !important;
+    }
 }

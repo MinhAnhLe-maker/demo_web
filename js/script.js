@@ -191,6 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
     hamburgerBtn.addEventListener("click", () => {
 
       menu.classList.toggle("active");
+      hamburgerBtn.classList.toggle("active");
 
     });
 
@@ -202,9 +203,76 @@ document.addEventListener("DOMContentLoaded", () => {
     link.addEventListener("click", () => {
 
       menu.classList.remove("active");
+      hamburgerBtn.classList.remove("active");
 
     });
 
   });
 
+  // Close Modal Logic
+  const modal = document.getElementById("videoModal");
+  const closeBtn = document.querySelector(".modal-close-btn");
+  const iframe = document.getElementById("modalVideoIframe");
+  const localVideo = document.getElementById("modalLocalVideo");
+
+  if (modal) {
+    const closeModal = () => {
+      modal.style.display = "none";
+      if (iframe) iframe.src = "";
+      if (localVideo) {
+        localVideo.pause();
+        localVideo.src = "";
+      }
+    };
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", closeModal);
+    }
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  }
+
 });
+
+/* =========================
+   VIDEO MODAL POPUP
+========================= */
+
+window.playVideo = function (cardElement, videoSource) {
+  const modal = document.getElementById("videoModal");
+  const iframe = document.getElementById("modalVideoIframe");
+  const localVideo = document.getElementById("modalLocalVideo");
+
+  if (!modal || !iframe || !localVideo) return;
+
+  // Detect if videoSource is local MP4 or YouTube ID
+  const isLocal = videoSource.endsWith(".mp4") || videoSource.includes("/");
+
+  if (isLocal) {
+    // Hide iframe
+    iframe.style.display = "none";
+    iframe.src = "";
+
+    // Setup and show local video
+    localVideo.src = videoSource;
+    localVideo.style.display = "block";
+    localVideo.play().catch((err) => {
+      console.warn("Autoplay was blocked or failed:", err);
+    });
+  } else {
+    // Pause and hide local video
+    localVideo.pause();
+    localVideo.style.display = "none";
+    localVideo.src = "";
+
+    // Setup and show YouTube iframe
+    iframe.src = `https://www.youtube.com/embed/${videoSource}?autoplay=1`;
+    iframe.style.display = "block";
+  }
+
+  modal.style.display = "block";
+};

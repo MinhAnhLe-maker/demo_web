@@ -206,8 +206,8 @@
     border: 1.5px solid #e2e8f0 !important;
     border-radius: 24px !important;
     
-    /* 1. GIẢM THÊM PADDING: Thu hẹp khoảng cách viền trên/dưới xuống còn 12px */
-    padding: 12px 24px !important; 
+    /* 1. PADDING CÂN ĐỐI: Tạo khoảng cách thông thoáng cho viền trên/dưới */
+    padding: 24px 24px !important; 
     
     text-align: center !important;
     box-shadow: 0 4px 10px rgba(0,0,0,0.02) !important;
@@ -217,13 +217,12 @@
     flex-direction: column !important;
     align-items: center !important;
 
-    /* 2. THẦN CHÚ MỚI: Đổi từ center sang space-between để nội dung tự giãn đều, 
-       không bị dồn cục ở giữa tạo khoảng trắng ở đầu và cuối nữa */
+    /* 2. DÀN ĐỀU NỘI DUNG THEO CHIỀU DỌC */
     justify-content: space-between !important;
 
-    /* 3. ĐẶT CHIỀU CAO CỐ ĐỊNH: Cho hẳn một chiều cao vừa vặn, không sợ bị dài ngoằng */
-    height: 320px !important; 
-    min-height: auto !important; /* Xóa bỏ min-height cũ */
+    /* 3. CHIỀU CAO TỰ CO GIÃN THÔNG MINH: Đảm bảo không bị tràn chữ và tràn nút bấm */
+    height: auto !important; 
+    min-height: 380px !important; /* Chiều cao tối thiểu đồng bộ, tự giãn nếu tiêu đề/mô tả quá dài */
 }
 
 /* 4. ĐỊNH DẠNG LẠI HÌNH VẼ CHO GỌN */
