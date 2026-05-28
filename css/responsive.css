@@ -1,16 +1,26 @@
+/* --- ÉP HEADER NẰM NGANG BẰNG MỌI GIÁ --- */
 @media screen and (max-width: 768px) {
-    /* 1. Nút Hamburger */
-    .hamburger-btn { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
-    .hamburger-btn span { width: 25px; height: 3px; background: #333; }
-
-    /* 2. Ẩn menu mặc định */
-    .menu { 
-        display: none !important; 
-        position: absolute; top: 60px; left: 0; width: 100%;
-        background: white; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        z-index: 9999;
+    .nav-container {
+        display: flex !important;
+        flex-direction: row !important; /* Ép về hàng ngang */
+        justify-content: space-between !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important; /* Không cho phép xuống dòng */
+        overflow: hidden !important;   /* Cắt phần thừa nếu menu quá dài */
+        width: 100% !important;
     }
-    
-    /* 3. Class để JS mở menu */
-    .menu.show-menu { display: flex !important; flex-direction: column; }
+
+    /* Thu nhỏ mọi thứ trong Header để nó "vừa" hàng ngang */
+    .logo, .menu a, .btn {
+        white-space: nowrap !important; /* Không cho xuống dòng chữ */
+        font-size: 12px !important;    /* Giảm font cho vừa */
+        padding: 0 5px !important;     /* Giảm khoảng cách để tiết kiệm chỗ */
+    }
+
+    /* Ẩn bớt các mục menu không quan trọng nếu cần */
+    .menu {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 5px !important;
+    }
 }
