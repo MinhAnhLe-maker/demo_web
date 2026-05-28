@@ -458,29 +458,17 @@ function openTopic(topic) {
 }
 
 window.openTopic = openTopic;
-/* =========================
-   HAMBURGER MENU - ĐÃ CẬP NHẬT
-========================= */
-document.addEventListener("DOMContentLoaded", () => {
-    const hamburgerBtn = document.getElementById("hamburger-btn");
-    const menu = document.querySelector(".menu");
+// Đóng/Mở Menu
+const hamburgerBtn = document.getElementById("hamburger-btn");
+const menu = document.querySelector(".menu");
 
-    if (hamburgerBtn && menu) {
-        hamburgerBtn.addEventListener("click", () => {
-            // Đóng/Mở menu bằng cách thêm/xóa class 'active'
-            menu.classList.toggle("active");
-            
-            // Tùy chọn: Thêm class vào nút để tạo hiệu ứng xoay (nếu có CSS)
-            hamburgerBtn.classList.toggle("active");
-        });
-    }
+hamburgerBtn.addEventListener("click", () => {
+    menu.classList.toggle("active");
+});
 
-    // Tùy chọn: Tự đóng menu khi bấm vào link bên trong
-    const menuLinks = document.querySelectorAll(".menu a");
-    menuLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            menu.classList.remove("active");
-            hamburgerBtn.classList.remove("active");
-        });
+// Tự đóng menu khi click vào các link
+document.querySelectorAll(".menu a").forEach(link => {
+    link.addEventListener("click", () => {
+        menu.classList.remove("active");
     });
 });
