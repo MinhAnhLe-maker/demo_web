@@ -1,34 +1,28 @@
-@media screen and (max-width: 768px) {
-    /* Ép header luôn nằm trên cùng và không tràn */
+/* --- CODE ÉP GIAO DIỆN KHI ĐIỆN THOẠI ĐỂ THẲNG ĐỨNG --- */
+@media screen and (max-width: 500px) {
+    /* 1. Ép header về hàng ngang nhưng cực kỳ gọn */
     .top-nav {
-        position: fixed !important; /* Giữ nó ở trên */
-        width: 100% !important;
-        height: 60px !important; /* Cố định chiều cao thấp thôi */
-        padding: 0 10px !important;
+        height: 50px !important;
+        padding: 0 5px !important;
     }
-
     .nav-container {
-        display: flex !important;
-        flex-direction: row !important; /* Ép về hàng ngang */
+        flex-direction: row !important; /* Luôn giữ hàng ngang */
         justify-content: space-between !important;
-        align-items: center !important;
+    }
+    
+    /* 2. Giấu bớt chữ trong menu để không bị tràn */
+    .menu {
+        display: none !important; /* Tạm ẩn menu, hoặc dùng code dưới để thu nhỏ */
+    }
+    
+    /* 3. Ép ảnh banner và các khung nội dung co lại đúng 100% */
+    img, .hero-banner, .card {
         width: 100% !important;
-        height: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
     }
 
-    /* Thu nhỏ logo */
-    .logo { font-size: 1rem !important; }
-    .logo img { width: 30px !important; }
-
-    /* Ẩn bớt menu hoặc thu nhỏ chữ để nó không bị đẩy xuống hàng */
-    .menu a {
-        font-size: 0.75rem !important;
-        margin: 0 5px !important;
-    }
-
-    /* Nút đăng nhập bé lại */
-    .btn {
-        padding: 5px 10px !important;
-        font-size: 0.75rem !important;
-    }
+    /* 4. Giảm tối đa font-size */
+    body { font-size: 13px !important; }
+    h1 { font-size: 20px !important; }
 }
