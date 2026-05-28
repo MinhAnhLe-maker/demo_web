@@ -448,26 +448,29 @@
     border: none;
     transition: all 0.2s ease;
 }
-/* Dành cho máy tính bảng và điện thoại (màn hình dưới 768px) */
+/* --- CODE RESPONSIVE BỔ SUNG --- */
 @media screen and (max-width: 768px) {
-    /* Ví dụ: Điều chỉnh container cho vừa màn hình */
-    .notebook {
-        width: 95% !important;
-        margin: 10px auto;
-    }
+    /* Đảm bảo toàn bộ trang không bị tràn ngang */
+    body { width: 100%; overflow-x: hidden; }
 
-    /* Đưa các phần tử từ nằm ngang thành nằm dọc */
-    .content-wrapper {
-        flex-direction: column;
-    }
+    /* Header: Xếp dọc menu và logo */
+    .nav-container { flex-direction: column; text-align: center; }
+    .menu { flex-direction: column; gap: 10px; margin: 10px 0; }
+    .auth-buttons { margin-top: 10px; }
 
-    /* Thu nhỏ video cho không bị tràn màn hình */
-    .video-full-slide video {
-        object-fit: contain;
-    }
-    
-    /* Điều chỉnh các mini-card ở dưới */
-    .lesson-list {
-        grid-template-columns: 1fr; /* Chỉ hiển thị 1 cột trên điện thoại */
-    }
+    /* Banner: Thu nhỏ ảnh banner */
+    .hero-banner img { height: auto; max-height: 200px; width: 100%; object-fit: cover; }
+    .hero-content h1 { font-size: 20px; }
+
+    /* Phần Tầm quan trọng: Chuyển sang 1 cột */
+    .importance-container { flex-direction: column; align-items: center; }
+    .importance-card { width: 90% !important; }
+
+    /* Phần Ý nghĩa: Chuyển từ hàng ngang sang chồng lên nhau */
+    .meaning-wrapper { flex-direction: column !important; }
+    .image-side img { width: 100%; height: auto; }
+
+    /* Phần Hình học: Chuyển grid thành 1 cột */
+    .grid-container { grid-template-columns: 1fr !important; }
+    .card { width: 90% !important; margin: 10px auto; }
 }
