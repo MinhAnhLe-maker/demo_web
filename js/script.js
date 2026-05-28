@@ -359,6 +359,8 @@ window.playVideo = playVideo;
    QUIZ SYSTEM
 ========================= */
 
+
+
 function backToQuizList() {
   document.getElementById("quizContentArea").style.display = "none";
 
@@ -460,5 +462,5 @@ const hamburgerBtn = document.getElementById("hamburger-btn");
 const menu = document.querySelector(".menu");
 
 hamburgerBtn.addEventListener("click", () => {
-  menu.classList.toggle("active");
+    menu.classList.toggle("active");
 });
