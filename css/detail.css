@@ -208,6 +208,28 @@ a.lesson-card {
     color: inherit; /* Giữ nguyên màu chữ gốc, không bị đổi sang xanh/tím */
     
 }
+/* Dành cho máy tính bảng và điện thoại (màn hình dưới 768px) */
+@media screen and (max-width: 768px) {
+    /* Ví dụ: Điều chỉnh container cho vừa màn hình */
+    .notebook {
+        width: 95% !important;
+        margin: 10px auto;
+    }
 
+    /* Đưa các phần tử từ nằm ngang thành nằm dọc */
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    /* Thu nhỏ video cho không bị tràn màn hình */
+    .video-full-slide video {
+        object-fit: contain;
+    }
+    
+    /* Điều chỉnh các mini-card ở dưới */
+    .lesson-list {
+        grid-template-columns: 1fr; /* Chỉ hiển thị 1 cột trên điện thoại */
+    }
+}
 
 
