@@ -1,39 +1,40 @@
+/* --- ÉP HEADER NẰM NGANG BẰNG MỌI GIÁ --- */
 @media screen and (max-width: 768px) {
-    /* 1. Ép header tự co giãn, không bị cắt nội dung */
-    .top-nav {
-        height: auto !important;
-        overflow: visible !important;
-    }
-
     .nav-container {
         display: flex !important;
-        flex-wrap: wrap !important; /* Cho phép xuống dòng nếu chật */
+        flex-direction: row !important; /* Ép về hàng ngang */
         justify-content: space-between !important;
         align-items: center !important;
+        flex-wrap: nowrap !important; /* Không cho phép xuống dòng */
+        overflow: hidden !important;   /* Cắt phần thừa nếu menu quá dài */
         width: 100% !important;
-        padding: 10px !important;
     }
 
-    /* 2. Cố định logo và nút auth */
-    .logo { order: 1; }
-    .hamburger-btn { order: 2; display: flex !important; }
-    .auth-buttons { order: 3; display: flex !important; }
+    /* Thu nhỏ mọi thứ trong Header để nó "vừa" hàng ngang */
+    .logo, .menu a, .btn {
+        white-space: nowrap !important; /* Không cho xuống dòng chữ */
+        font-size: 12px !important;    /* Giảm font cho vừa */
+        padding: 0 5px !important;     /* Giảm khoảng cách để tiết kiệm chỗ */
+    }
 
-    /* 3. Menu nằm dưới cùng */
-    .menu {
-        display: none !important;
-        order: 4; /* Luôn xuống hàng dưới cùng */
-        width: 100% !important;
+    .menu { 
+        display: none !important; 
+        position: absolute;
+        top: 60px; left: 0; width: 100%;
+        background: #fff; padding: 20px;
         flex-direction: column !important;
-        background: #fff;
-        padding: 15px 0 !important;
-        margin-top: 10px;
+        z-index: 999;
+ 
+}
+.auth-buttons {
+        display: flex !important; /* Đảm bảo nó luôn hiện */
+        flex-direction: row !important; /* Ép hàng ngang */
+        margin-left: auto; /* Đẩy sang góc phải */
     }
-    .menu.show { display: flex !important; }
-    
-    /* 4. Giảm kích thước nút để vừa màn hình */
-    .auth-buttons .btn {
-        padding: 4px 8px !important;
-        font-size: 10px !important;
-    }
+    /* 3. Khi menu mở ra thì hiện nó */
+    .menu.show-menu { display: flex !important; }
+    /* 1. Mặc định: Nút Hamburger bị ẩn, Menu hiển thị bình thường */
+.hamburger-btn { display: none; cursor: pointer; padding: 10px; }
+.hamburger-btn span { display: block; width: 25px; height: 3px; background: #333; margin: 5px 0; }
+
 }
