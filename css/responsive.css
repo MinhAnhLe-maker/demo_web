@@ -17,10 +17,21 @@
         padding: 0 5px !important;     /* Giảm khoảng cách để tiết kiệm chỗ */
     }
 
-    /* Ẩn bớt các mục menu không quan trọng nếu cần */
-    .menu {
-        display: flex !important;
-        flex-direction: row !important;
-        gap: 5px !important;
+    .menu { 
+        display: none !important; 
+        position: absolute;
+        top: 60px; left: 0; width: 100%;
+        background: #fff; padding: 20px;
+        flex-direction: column !important;
+        z-index: 999;
+ 
+}
+.auth-buttons {
+        display: flex !important; /* Đảm bảo nó luôn hiện */
+        flex-direction: row !important; /* Ép hàng ngang */
+        margin-left: auto; /* Đẩy sang góc phải */
     }
+    /* 3. Khi menu mở ra thì hiện nó */
+    .menu.show-menu { display: flex !important; }
+
 }
