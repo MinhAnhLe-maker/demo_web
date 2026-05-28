@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
 
     <!-- FIX RESPONSIVE -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <title>MathSpace</title>
 
@@ -25,84 +25,41 @@
          NAVBAR
     ========================================================== -->
     <header class="top-nav">
-
-        <div class="nav-container">
-
-            <!-- LOGO -->
-            <div class="logo">
-                <img src="https://cdn-icons-png.flaticon.com/512/3413/3413535.png" alt="logo">
-
-                <span>
-                    Math<b class="text-blue">Space</b>
-                </span>
-            </div>
-
-            <!-- HAMBURGER -->
-            <div class="hamburger-btn" id="hamburger-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-
-            <!-- MENU -->
-            <nav class="menu">
-
-                <a href="detail.html">
-                    Thông tin chi tiết
-                </a>
-
-                <a href="../html/test.html">
-                    Kiểm tra
-                </a>
-
-                <a href="../html/shop.html">
-                    Cửa hàng
-                </a>
-
-                <a href="../html/profile.html">
-                    Profile
-                </a>
-
-            </nav>
-
-            <!-- AUTH -->
-            <div class="auth-buttons">
-
-                <!-- CHƯA ĐĂNG NHẬP -->
-                <div id="logged-out-view" class="auth-flex">
-
-                    <a href="login.html" class="btn btn-outline">
-                        Đăng nhập
-                    </a>
-
-                    <a href="register.html" class="btn btn-fill">
-                        Đăng ký
-                    </a>
-
-                </div>
-
-                <!-- ĐÃ ĐĂNG NHẬP -->
-                <div id="logged-in-view"
-                    class="auth-flex"
-                    style="display: none;">
-
-                    <span id="user-name"></span>
-
-                    <button id="logout-btn"
-                        class="btn btn-outline">
-
-                        Đăng xuất
-
-                    </button>
-
-                </div>
-
-            </div>
-
+    <div class="nav-container">
+        <div class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/3413/3413535.png" alt="logo">
+            <span>
+                Math<b class="text-blue">Space</b>
+            </span>
         </div>
 
-    </header>
+        <div class="hamburger-btn" id="hamburger-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="menu">
+            <a href="detail.html">Thông tin chi tiết</a>
+            <a href="../html/test.html">Kiểm tra</a>
+            <a href="../html/shop.html">Cửa hàng</a>
+            <a href="../html/profile.html">Profile</a>
+
+            <div class="auth-buttons">
+                <div id="logged-out-view" class="auth-flex">
+                    <a href="login.html" class="btn btn-outline">Đăng nhập</a>
+                    <a href="register.html" class="btn btn-fill">Đăng ký</a>
+                </div>
+
+                <div id="logged-in-view" class="auth-flex" style="display: none;">
+                    <span id="user-name"></span>
+                    <button id="logout-btn" class="btn btn-outline">Đăng xuất</button>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
 
     <!-- =========================================================
          HERO BANNER

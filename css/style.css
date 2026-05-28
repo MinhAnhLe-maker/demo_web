@@ -196,12 +196,15 @@ video {
    HERO
 ========================================================= */
 .hero-banner {
+  
+    min-height: 50vh !important; /* Đổi từ 720px thành 50vh để nó tự co theo máy */
+
     position: relative;
 
     margin-top: 70px;
 
     width: 100%;
-    min-height: 720px;
+  
 
     overflow: hidden;
 
