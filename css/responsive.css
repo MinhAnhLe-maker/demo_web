@@ -25,4 +25,35 @@
         flex-direction: row !important;
         padding: 0 !important;
     }
+    /* Chặn cuộn ngang toàn trang */
+html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Ép banner luôn nằm gọn trong khung hình */
+.hero-banner, .banner {
+    width: 100vw !important;
+    max-width: 100% !important;
+    height: auto !important;
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+/* Ép ảnh con trong banner luôn nghe lời */
+.hero-banner img, .banner img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* Xử lý riêng khi xoay ngang */
+@media screen and (orientation: landscape) {
+    .hero-banner, .banner {
+        max-height: 80vh !important;
+    }
+}
 }

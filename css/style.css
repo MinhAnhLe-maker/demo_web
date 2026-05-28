@@ -139,18 +139,8 @@ body {
 
   object-fit: cover;
   display: block;
-  max-width: 100% !important; /* Không bao giờ vượt quá chiều rộng màn hình */
-  height: auto !important;    /* Tự điều chỉnh chiều cao theo tỷ lệ */
-  object-fit: cover !important; /* Giữ ảnh không bị méo */
-  width: 100% !important;
-  /* Khi xoay ngang điện thoại (Màn hình rộng) */
-@media screen and (orientation: landscape) and (max-height: 600px) {
-    .hero-banner {
-        aspect-ratio: 21 / 9; /* Chuyển sang tỷ lệ dài hơn khi xoay ngang */
-        max-height: 300px;    /* Không để ảnh quá cao chiếm hết chỗ */
-    }
-
-}}
+  
+}
 
 /* LỚP PHỦ TỐI */
 .hero-banner::before {
