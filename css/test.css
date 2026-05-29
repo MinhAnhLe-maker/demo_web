@@ -179,7 +179,7 @@
 .start-btn:active {
     transform: translateY(1px) !important; /* Nhấn lún xuống nhẹ tạo cảm giác bấm nút thật */
 }
-* Vùng chứa ảnh */
+/* Vùng chứa ảnh */
 .card-image {
     width: 130px;
     height: 130px;
@@ -451,4 +451,141 @@
 /* ==========================================================================
    THIẾT LẬP RESPONSIVE HOÀN CHỈNH (Dán vào cuối file CSS)
    ========================================================================== */
+/* =========================================================
+   MOBILE RESPONSIVE (BẢN DÀI + THOÁNG HƠN)
+========================================================= */
+@media screen and (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    /* KHUNG CHÍNH */
+    .quiz-main-container {
+        width: 100%;
+        padding: 20px 15px;
+        margin: 0 auto;
+    }
+
+    /* HEADER */
+    .quiz-header-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        gap: 20px;
+
+        margin-top: 30px !important;
+        margin-bottom: 35px !important;
+
+        width: 100% !important;
+    }
+
+    .quiz-title-box {
+        margin-right: 0 !important;
+        text-align: center;
+    }
+
+    .quiz-main-title {
+        font-size: 2.4rem !important;
+        line-height: 1.3;
+    }
+
+    .quiz-title-box p {
+        font-size: 1.05rem !important;
+        color: #64748b;
+    }
+
+    /* GRID CARD */
+    .quiz-grid-33 {
+        grid-template-columns: 1fr !important;
+        gap: 25px !important;
+        margin-top: 30px !important;
+    }
+
+    /* CARD */
+    .quiz-menu-card {
+        width: 100% !important;
+        min-height: 340px !important;
+
+        padding: 25px !important;
+
+        border-radius: 22px !important;
+    }
+
+    .quiz-menu-card img,
+    .quiz-menu-card .icon {
+        height: 95px !important;
+    }
+
+    /* BUTTON START */
+    .start-btn {
+        width: 100% !important;
+        height: 52px !important;
+
+        font-size: 16px !important;
+    }
+
+    /* QUIZ BOX */
+    .quiz-container {
+        width: 100%;
+        min-height: 70vh !important;
+
+        padding: 25px !important;
+        padding-bottom: 120px !important;
+
+        border-radius: 14px;
+    }
+
+    /* QUESTION */
+    #question-text {
+        font-size: 18px;
+        min-height: 80px;
+        line-height: 1.5;
+    }
+
+    /* HINT */
+    #hint-text {
+        min-height: 60px;
+        font-size: 14px;
+    }
+
+    /* OPTIONS */
+    .option-btn {
+        min-height: 60px;
+        font-size: 15px;
+        padding: 14px;
+        border-radius: 8px;
+    }
+
+    /* NAV BUTTONS */
+    .navigation-buttons,
+    .quiz-navigation {
+        position: static !important;
+
+        margin-top: 30px;
+
+        width: 100%;
+
+        display: flex;
+        gap: 15px;
+    }
+
+    #prev-btn,
+    #next-btn {
+        flex: 1;
+        height: 48px;
+        font-size: 15px;
+    }
+
+    /* BACK BUTTON */
+    .top-nav {
+        position: static !important;
+
+        display: flex;
+        justify-content: center;
+
+        margin-bottom: 25px;
+    }
+}
 

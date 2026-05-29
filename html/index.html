@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -353,6 +353,81 @@
         </div>
 
     </footer>
+
+    <!-- =========================================================
+     VIDEO MODAL
+========================================================= -->
+<div id="videoModal">
+
+    <div class="modal-content">
+
+        <span class="modal-close-btn">&times;</span>
+
+        <div class="video-container-16-9">
+
+            <!-- YouTube Video -->
+            <iframe
+                id="modalVideoIframe"
+                src=""
+                allow="autoplay; encrypted-media"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================================================
+     VIDEO SCRIPT
+========================================================= -->
+<script>
+
+    const modal = document.getElementById("videoModal");
+
+    const iframe = document.getElementById("modalVideoIframe");
+
+    const closeBtn = document.querySelector(".modal-close-btn");
+
+    // OPEN VIDEO
+    function playVideo(card, videoId) {
+
+        modal.style.display = "block";
+
+        iframe.src =
+            "https://www.youtube.com/embed/" +
+            videoId +
+            "?autoplay=1";
+
+    }
+
+    // CLOSE BUTTON
+    closeBtn.onclick = function () {
+
+        modal.style.display = "none";
+
+        iframe.src = "";
+
+    };
+
+    // CLICK OUTSIDE
+    window.onclick = function (e) {
+
+        if (e.target == modal) {
+
+            modal.style.display = "none";
+
+            iframe.src = "";
+
+        }
+
+    };
+
+</script>
+
+<!-- JS -->
+<script type="module" src="../js/script.js"></script>
 
     <!-- JS -->
     <script type="module" src="../js/script.js"></script>

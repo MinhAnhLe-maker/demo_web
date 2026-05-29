@@ -143,6 +143,9 @@ video {
 .auth-flex {
     display: flex;
     align-items: center;
+    
+    gap: 20px;
+
 }
 
 .btn {
@@ -732,7 +735,8 @@ video {
     background: #0f172a;
 }
 
-.video-container-16-9 iframe {
+.video-container-16-9 iframe,
+.video-container-16-9 video {
     position: absolute;
     top: 0;
     left: 0;

@@ -40,7 +40,6 @@ const userNameDisplay = document.getElementById("user-name");
 
 const logoutBtn = document.getElementById("logout-btn");
 
-
 /* =========================
    ẨN USER VIEW TRƯỚC
 ========================= */
