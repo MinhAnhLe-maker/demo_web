@@ -375,19 +375,93 @@ body {
 /* Điều chỉnh responsive cho wrapper bố cục trên màn hình nhỏ */
 @media (max-width: 992px) {
     .quiz-layout-wrapper {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 20px;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 20px !important;
     }
+
+    /* BẢNG TIẾN ĐỘ THU GỌN VÀ HIỆN ĐẠI HƠN TRÊN MOBILE */
     .question-palette-container {
-        width: auto;
-        flex: none;
+        width: 100% !important;
+        flex: none !important;
+        padding: 20px !important;
+        border-radius: 24px !important;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important;
+        background: #ffffff !important;
+        box-sizing: border-box !important;
     }
+
+    .palette-title {
+        font-size: 1.05rem !important;
+        margin-bottom: 12px !important;
+        padding-bottom: 8px !important;
+        color: #1e3a8a !important;
+        font-weight: 700 !important;
+    }
+
+    /* Biến lưới 5 cột cồng kềnh thành dòng cuộn ngang siêu mượt mà trên Mobile */
+    .palette-grid {
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        gap: 10px !important;
+        padding: 8px 4px 12px 4px !important;
+        scrollbar-width: thin !important;
+        scrollbar-color: #00a8e8 transparent !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    .palette-grid::-webkit-scrollbar {
+        height: 5px !important;
+    }
+
+    .palette-grid::-webkit-scrollbar-track {
+        background: transparent !important;
+    }
+
+    .palette-grid::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 168, 232, 0.3) !important;
+        border-radius: 10px !important;
+    }
+
+    .palette-item {
+        flex: 0 0 42px !important; /* Đảm bảo ô vuông không bị bóp méo khi cuộn ngang */
+        width: 42px !important;
+        height: 42px !important;
+        font-size: 0.95rem !important;
+        border-radius: 10px !important;
+    }
+
+    /* NÚT HÀNH ĐỘNG DÀY DẶN VÀ ĐẸP MẮT */
+    .palette-btn {
+        margin-top: 10px !important;
+        padding: 14px !important;
+        border-radius: 14px !important;
+        font-size: 1.05rem !important;
+        box-shadow: 0 6px 20px rgba(0, 114, 255, 0.15) !important;
+    }
+
+    /* BỘ ĐẾM THỜI GIAN BAY FLOATING CỰC ĐẸP DƯỚI GÓC PHẢI */
     .quiz-timer {
-        position: static;
-        margin: 0 auto 20px auto;
-        width: fit-content;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+        position: fixed !important;
+        bottom: 20px !important;
+        right: 20px !important;
+        top: auto !important;
+        margin: 0 !important;
+        padding: 10px 18px !important;
+        border-radius: 50px !important; /* Dạng viên thuốc */
+        background: rgba(255, 255, 255, 0.9) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border: 1.5px solid rgba(226, 232, 240, 0.8) !important;
+        box-shadow: 0 10px 25px rgba(30, 58, 138, 0.12) !important;
+        z-index: 9999 !important;
+    }
+
+    .quiz-timer.warning {
+        border-color: #ef4444 !important;
+        background-color: rgba(254, 242, 242, 0.9) !important;
     }
 }
 
